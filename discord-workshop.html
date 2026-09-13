@@ -219,12 +219,12 @@
   </nav>
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
-  <!-- HERO SECTION -->
-  <section class="dw-hero" id="top">
+  <!-- REFERENCE-INSPIRED HERO SECTION -->
+  <section class="dw-ref-hero" id="top">
     <div class="container">
+      <div class="dw-ref-hero-header">
 
-      <div class="dw-hero-header">
-        <!-- Colored Accent Bar (Matching Home Page) -->
+        <!-- Colored Accent Bar (Matching Brand Design) -->
         <div class="hero-accent-bar" style="margin: 0 auto 1.5rem; justify-content: center;" aria-hidden="true">
           <span class="hero-accent-segment hero-accent-red"></span>
           <span class="hero-accent-segment hero-accent-yellow"></span>
@@ -232,306 +232,111 @@
           <span class="hero-accent-segment hero-accent-blue"></span>
         </div>
 
-        <div class="dw-hero-badge-wrapper">
-          <div class="dw-live-badge">
-            <span class="dw-pulse-dot"></span>
-            <span>Virtual Campus &bull; Live Stages Active</span>
-          </div>
-        </div>
-
-        <h1 class="dw-hero-title">
-          Learn, Code &amp; Connect in <br>
-          <span class="gradient-text">Navigo Discord Workshops</span>
+        <!-- Headline: Inspired by Reference (Orange & White Two-Tone) -->
+        <h1 class="dw-ref-hero-title">
+          <span class="dw-ref-hl-orange">Learn To</span> <span class="dw-ref-hl-white">Make A Difference</span>
         </h1>
-        <p class="dw-hero-lead">
-          Join thousands of students across all 7 provinces of Nepal for live career counseling, STEM &amp; coding masterclasses, Post-SEE stream diagnostics, and peer study halls — 100% free, interactive, and community-driven.
+
+        <!-- Subtitle: Inspired by Reference Lead Paragraph -->
+        <p class="dw-ref-hero-lead">
+          Hundreds of thousands of students across all 7 provinces of Nepal seek mentorship, tech skills, and career guidance. Navigo Nepal provides 100% free interactive Discord workshops, live coding stages, and peer study circles.
         </p>
 
-        <div class="dw-hero-cta-group">
-          <a href="https://discord.gg/navigonepal" target="_blank" rel="noopener noreferrer" class="btn-discord-primary" id="heroJoinDiscordBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 127.14 96.36" fill="currentColor">
+        <!-- Primary CTA: "Get Involved" Orange Button -->
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="https://discord.gg/navigonepal" target="_blank" rel="noopener noreferrer" class="dw-ref-hero-btn" id="heroJoinDiscordBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 127.14 96.36" fill="currentColor">
               <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.91,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,45.91,96.12,53,91.08,65.69,84.69,65.69Z"/>
             </svg>
-            Join Discord Server Now
+            Get Involved / Join Discord
           </a>
+        </div>
 
-          <a href="#how-to-join" class="btn-discord-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Secondary Links -->
+        <div class="dw-ref-secondary-links">
+          <a href="#how-to-join" class="btn-discord-secondary" style="background: rgba(255, 255, 255, 0.12); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
             How to Join (Guide)
           </a>
 
-          <button class="dw-copy-link-btn" id="copyInviteBtn" title="Copy Discord Invite Code">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <button class="dw-copy-link-btn" id="copyInviteBtn" onclick="copyDiscordLink()" title="Copy Discord Invite Code" style="background: rgba(255, 255, 255, 0.12); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
               <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
             </svg>
             <span>discord.gg/navigonepal</span>
           </button>
         </div>
-      </div>
 
-      <!-- Hero Banner Media -->
-      <div class="dw-hero-media-wrapper">
-        <img src="assets/discord_workshop_hero.jpg" alt="Navigo Nepal Discord Online Workshop Session" class="dw-hero-banner-img">
-        
-        <div class="dw-banner-overlay-stats">
-          <div class="dw-banner-stat-item">
-            <div class="dw-banner-stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <div>
-              <div class="dw-banner-stat-val">4,500+</div>
-              <div class="dw-banner-stat-lbl">Active Discord Learners</div>
-            </div>
-          </div>
-
-          <div class="dw-banner-stat-item">
-            <div class="dw-banner-stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
-            </div>
-            <div>
-              <div class="dw-banner-stat-val">35+</div>
-              <div class="dw-banner-stat-lbl">Live Stages Delivered</div>
-            </div>
-          </div>
-
-          <div class="dw-banner-stat-item">
-            <div class="dw-banner-stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
-            </div>
-            <div>
-              <div class="dw-banner-stat-val">7 Provinces</div>
-              <div class="dw-banner-stat-lbl">Nationwide Outreach</div>
-            </div>
-          </div>
-
-          <div class="dw-banner-stat-item">
-            <div class="dw-banner-stat-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <div>
-              <div class="dw-banner-stat-val">100% Free</div>
-              <div class="dw-banner-stat-lbl">Zero Cost Non-Profit</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- METRICS STRIP -->
-  <section class="dw-metrics-strip">
-    <div class="container">
-      <div class="dw-metrics-grid">
-        <div class="dw-metric-box">
-          <div class="dw-metric-number dw-metric-color-1">300+</div>
-          <div class="dw-metric-label">Stage Participants</div>
-          <div class="dw-metric-sub">Average per live workshop</div>
-        </div>
-        <div class="dw-metric-box">
-          <div class="dw-metric-number dw-metric-color-2">45+</div>
-          <div class="dw-metric-label">Expert Mentors</div>
-          <div class="dw-metric-sub">Engineers, doctors &amp; educators</div>
-        </div>
-        <div class="dw-metric-box">
-          <div class="dw-metric-number dw-metric-color-3">24/7</div>
-          <div class="dw-metric-label">Peer Study Channels</div>
-          <div class="dw-metric-sub">Collaborative homework help</div>
-        </div>
-        <div class="dw-metric-box">
-          <div class="dw-metric-number dw-metric-color-4">Verified</div>
-          <div class="dw-metric-label">Digital Certificates</div>
-          <div class="dw-metric-sub">Issued for workshop completion</div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- STEP-BY-STEP HOW TO JOIN SECTION -->
-  <section class="dw-section" id="how-to-join">
+  <!-- 3 OVERLAPPING CARDS (Inspired by Reference UI) -->
+  <div class="dw-ref-cards-wrapper">
     <div class="container">
-      
-      <div class="dw-section-header">
-        <span class="dw-tag">Quick Onboarding Guide</span>
-        <h2 class="dw-section-title">How to Join Navigo Nepal Workshops</h2>
-        <p class="dw-section-desc">
-          Joining takes less than 3 minutes. Follow these simple steps whether you are on a smartphone, tablet, laptop, or desktop computer.
-        </p>
-      </div>
+      <div class="dw-ref-cards-grid">
 
-      <div class="dw-steps-container">
-
-        <!-- Step 1 -->
-        <div class="dw-step-card">
-          <div class="dw-step-indicator">
-            <div class="dw-step-badge dw-step-badge-1">1</div>
-          </div>
-          <div class="dw-step-content">
-            <h3>
-              <span>Get Discord on Your Device</span>
-              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 minute</span>
-            </h3>
-            <p>
-              Discord is a free, high-performance voice and community communication platform. You can install it on your Android or iPhone, download the desktop app for Windows/Mac, or simply open it in Google Chrome or Safari without installing.
-            </p>
-            <div class="dw-step-actions">
-              <a href="https://play.google.com/store/apps/details?id=com.discord" target="_blank" rel="noopener noreferrer" class="dw-step-btn-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.341V2.155c.182-.132.39-.247.609-.341zm11.233 11.236l2.42 2.42-12.01 6.848 9.59-9.268zm0-2.1L5.252 1.682l12.01 6.848-2.42 2.42zm1.488 1.05l3.856 2.198c1.092.623 1.092 1.636 0 2.259l-3.856 2.198-2.317-2.317 2.317-2.338z"/></svg>
-                Google Play (Android)
-              </a>
-              <a href="https://apps.apple.com/app/discord-talk-chat-hang-out/id985746746" target="_blank" rel="noopener noreferrer" class="dw-step-btn-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.85c.66-.82 1.11-1.96.99-3.1-.96.04-2.18.66-2.87 1.47-.6.7-1.13 1.83-.99 2.94 1.07.08 2.21-.49 2.87-1.31z"/></svg>
-                App Store (iOS)
-              </a>
-              <a href="https://discord.com/download" target="_blank" rel="noopener noreferrer" class="dw-step-btn-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                Desktop (Windows/Mac)
-              </a>
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="dw-step-btn-pill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                Open in Web Browser
-              </a>
-            </div>
-          </div>
+        <!-- Card 1: Slate Teal / Interactive Stages -->
+        <div class="dw-ref-card dw-ref-card-dark">
+          <h3 class="dw-ref-card-title">Interactive Live Stages</h3>
+          <p class="dw-ref-card-desc">
+            Engage in live voice and video stages led by experienced software engineers, university scholars, and career mentors across Nepal.
+          </p>
+          <a href="#schedule" class="dw-ref-card-btn dw-ref-card-btn-orange">Read More</a>
         </div>
 
-        <!-- Step 2 -->
-        <div class="dw-step-card">
-          <div class="dw-step-indicator">
-            <div class="dw-step-badge dw-step-badge-2">2</div>
-          </div>
-          <div class="dw-step-content">
-            <h3>
-              <span>Accept the Navigo Nepal Server Invite</span>
-              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>30 seconds</span>
-            </h3>
-            <p>
-              Click our official server invite link below or paste <code>discord.gg/navigonepal</code> into the Discord app under <strong>"Join a Server"</strong>.
-            </p>
-            <div class="dw-step-actions">
-              <a href="https://discord.gg/navigonepal" target="_blank" rel="noopener noreferrer" class="btn-discord-primary" style="padding: 0.6rem 1.4rem; font-size: 0.92rem;">
-                Accept Invite (discord.gg/navigonepal)
-              </a>
-              <button class="dw-copy-link-btn" onclick="copyDiscordLink()" style="padding: 0.6rem 1rem;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                Copy Link
-              </button>
-            </div>
-          </div>
+        <!-- Card 2: Center Standout Amber/Orange / Become Member -->
+        <div class="dw-ref-card dw-ref-card-accent">
+          <h3 class="dw-ref-card-title">Join Discord Campus</h3>
+          <p class="dw-ref-card-desc">
+            Become part of 4,500+ student learners with 24/7 peer study rooms, resource toolkits, collaborative project labs, and doubt resolution.
+          </p>
+          <a href="https://discord.gg/navigonepal" target="_blank" rel="noopener noreferrer" class="dw-ref-card-btn dw-ref-card-btn-dark">Read More</a>
         </div>
 
-        <!-- Step 3 -->
-        <div class="dw-step-card">
-          <div class="dw-step-indicator">
-            <div class="dw-step-badge dw-step-badge-3">3</div>
-          </div>
-          <div class="dw-step-content">
-            <h3>
-              <span>Complete Verification &amp; Choose Your Roles</span>
-              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 minute</span>
-            </h3>
-            <p>
-              Upon entering the server, head over to the <code>#welcome-and-verify</code> channel. Click the green verification checkmark and select your role tag. This customizes your notifications so you only receive alerts relevant to your grade and interests!
-            </p>
-            <div class="dw-role-tags-list">
-              <span class="dw-role-tag">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                <span>Grade 10 / SEE Graduate</span>
-              </span>
-              <span class="dw-role-tag">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.35 19.4A2 2 0 0 0 6.09 22h11.82a2 2 0 0 0 1.74-2.6L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
-                <span>+2 Science &amp; Engineering</span>
-              </span>
-              <span class="dw-role-tag">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
-                <span>+2 Management &amp; Humanities</span>
-              </span>
-              <span class="dw-role-tag">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                <span>Tech &amp; Programming</span>
-              </span>
-              <span class="dw-role-tag">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-                <span>Eco Club &amp; Scouts</span>
-              </span>
-              <span class="dw-role-tag">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-                <span>Mentor / Educator</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="dw-step-card">
-          <div class="dw-step-indicator">
-            <div class="dw-step-badge dw-step-badge-4">4</div>
-          </div>
-          <div class="dw-step-content">
-            <h3>
-              <span>RSVP to Upcoming Live Stages</span>
-              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>20 seconds</span>
-            </h3>
-            <p>
-              Check the <strong>"Events"</strong> tab at the very top of our Discord server. Find the workshop you want to attend (e.g. <em>Post-SEE Stream Diagnostic</em> or <em>Python &amp; AI Fundamentals</em>) and click <strong>"Interested"</strong>. Discord will automatically remind you 15 minutes before the session starts!
-            </p>
-            <div class="dw-step-actions">
-              <button class="dw-step-btn-pill" onclick="openRsvpModal('General Workshop Series')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                Set Web Reminder (Email / WhatsApp)
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="dw-step-card">
-          <div class="dw-step-indicator">
-            <div class="dw-step-badge dw-step-badge-5">5</div>
-          </div>
-          <div class="dw-step-content">
-            <h3>
-              <span>Join the Live Stage &amp; Participate</span>
-              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Workshop Day</span>
-            </h3>
-            <p>
-              When the workshop begins, click the <code>🎙️ Workshop Stage</code> channel. You will be able to listen in high-definition audio, watch the mentor's slides or live coding screen share, ask questions in the live <code>#workshop-qa</code> thread, and request to speak using the <em>Raise Hand</em> button.
-            </p>
-            <div class="dw-step-actions">
-              <span class="dw-step-time" style="background: rgba(16, 185, 129, 0.12); color: #10B981; font-weight: 700;">
-                ✓ Low Bandwidth Friendly (Runs smoothly on mobile data)
-              </span>
-              <span class="dw-step-time" style="background: rgba(37, 99, 235, 0.1); color: var(--elite-blue); font-weight: 700;">
-                ✓ Digital Certificate Attendance Form Shared At End
-              </span>
-            </div>
-          </div>
+        <!-- Card 3: Slate Teal / Tech & Career Labs -->
+        <div class="dw-ref-card dw-ref-card-dark">
+          <h3 class="dw-ref-card-title">Post-SEE &amp; Career Labs</h3>
+          <p class="dw-ref-card-desc">
+            Stream selection counseling, coding masterclasses, IOE/entrance strategies, and youth leadership circles — 100% free of charge.
+          </p>
+          <a href="#tracks" class="dw-ref-card-btn dw-ref-card-btn-orange">Read More</a>
         </div>
 
       </div>
+    </div>
+  </div>
 
+  <!-- TWO-COLUMN NARRATIVE / STORY SECTION (Inspired by Reference UI) -->
+  <section class="dw-ref-story-section" id="about-workshops">
+    <div class="container">
+      <div class="dw-ref-story-grid">
+
+        <!-- Left Column: Content -->
+        <div class="dw-ref-story-content">
+          <h2 class="dw-ref-story-title">It's Easier To Dream Than To Build — We Help You Do Both</h2>
+          <p class="dw-ref-story-text">
+            Quality education, modern programming skills, and career clarity shouldn't depend on which district you grow up in or what school you attend. Navigo Nepal's Discord Workshops provide an open, inclusive virtual learning campus designed to bridge the gap between classroom theory and real-world opportunities.
+          </p>
+          <p class="dw-ref-story-text">
+            Whether you are deciding your +2 academic stream after SEE, writing your first line of code in Python, or seeking passionate teammates for a tech project, our community connects you directly with mentors and thousands of peers across Nepal.
+          </p>
+          <div class="dw-ref-story-actions">
+            <a href="#how-to-join" class="dw-ref-story-btn">
+              Join Next Session
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Contextual Cultural/Educational Photograph -->
+        <div class="dw-ref-story-media">
+          <img src="assets/workshop_story_img.jpg" alt="Nepali student learning on laptop in ancient Kathmandu temple courtyard" class="dw-ref-story-img" loading="lazy">
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -540,7 +345,6 @@
     <div class="container">
       
       <div class="dw-section-header">
-        <span class="dw-tag">Interactive Server Tour</span>
         <h2 class="dw-section-title">Explore Inside the Navigo Discord</h2>
         <p class="dw-section-desc">
           Click the channels in the sidebar below to see how our workshops, live stages, resource libraries, and Q&amp;A sessions are structured.
@@ -727,12 +531,204 @@
     </div>
   </section>
 
+  <!-- METRICS STRIP -->
+  <section class="dw-metrics-strip">
+    <div class="container">
+      <div class="dw-metrics-grid">
+        <div class="dw-metric-box">
+          <div class="dw-metric-number dw-metric-color-1">300+</div>
+          <div class="dw-metric-label">Stage Participants</div>
+          <div class="dw-metric-sub">Average per live workshop</div>
+        </div>
+        <div class="dw-metric-box">
+          <div class="dw-metric-number dw-metric-color-2">45+</div>
+          <div class="dw-metric-label">Expert Mentors</div>
+          <div class="dw-metric-sub">Engineers, doctors &amp; educators</div>
+        </div>
+        <div class="dw-metric-box">
+          <div class="dw-metric-number dw-metric-color-3">24/7</div>
+          <div class="dw-metric-label">Peer Study Channels</div>
+          <div class="dw-metric-sub">Collaborative homework help</div>
+        </div>
+        <div class="dw-metric-box">
+          <div class="dw-metric-number dw-metric-color-4">Verified</div>
+          <div class="dw-metric-label">Digital Certificates</div>
+          <div class="dw-metric-sub">Issued for workshop completion</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP-BY-STEP HOW TO JOIN SECTION -->
+  <section class="dw-section" id="how-to-join">
+    <div class="container">
+      
+      <div class="dw-section-header">
+        <h2 class="dw-section-title">How to Join Navigo Nepal Workshops</h2>
+        <p class="dw-section-desc">
+          Joining takes less than 3 minutes. Follow these simple steps whether you are on a smartphone, tablet, laptop, or desktop computer.
+        </p>
+      </div>
+
+      <div class="dw-steps-container">
+
+        <!-- Step 1 -->
+        <div class="dw-step-card">
+          <div class="dw-step-indicator">
+            <div class="dw-step-badge dw-step-badge-1">1</div>
+          </div>
+          <div class="dw-step-content">
+            <h3>
+              <span>Get Discord on Your Device</span>
+              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 minute</span>
+            </h3>
+            <p>
+              Discord is a free, high-performance voice and community communication platform. You can install it on your Android or iPhone, download the desktop app for Windows/Mac, or simply open it in Google Chrome or Safari without installing.
+            </p>
+            <div class="dw-step-actions">
+              <a href="https://play.google.com/store/apps/details?id=com.discord" target="_blank" rel="noopener noreferrer" class="dw-step-btn-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.341V2.155c.182-.132.39-.247.609-.341zm11.233 11.236l2.42 2.42-12.01 6.848 9.59-9.268zm0-2.1L5.252 1.682l12.01 6.848-2.42 2.42zm1.488 1.05l3.856 2.198c1.092.623 1.092 1.636 0 2.259l-3.856 2.198-2.317-2.317 2.317-2.338z"/></svg>
+                Google Play (Android)
+              </a>
+              <a href="https://apps.apple.com/app/discord-talk-chat-hang-out/id985746746" target="_blank" rel="noopener noreferrer" class="dw-step-btn-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.85c.66-.82 1.11-1.96.99-3.1-.96.04-2.18.66-2.87 1.47-.6.7-1.13 1.83-.99 2.94 1.07.08 2.21-.49 2.87-1.31z"/></svg>
+                App Store (iOS)
+              </a>
+              <a href="https://discord.com/download" target="_blank" rel="noopener noreferrer" class="dw-step-btn-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                Desktop (Windows/Mac)
+              </a>
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="dw-step-btn-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Open in Web Browser
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="dw-step-card">
+          <div class="dw-step-indicator">
+            <div class="dw-step-badge dw-step-badge-2">2</div>
+          </div>
+          <div class="dw-step-content">
+            <h3>
+              <span>Accept the Navigo Nepal Server Invite</span>
+              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>30 seconds</span>
+            </h3>
+            <p>
+              Click our official server invite link below or paste <code>discord.gg/navigonepal</code> into the Discord app under <strong>"Join a Server"</strong>.
+            </p>
+            <div class="dw-step-actions">
+              <a href="https://discord.gg/navigonepal" target="_blank" rel="noopener noreferrer" class="btn-discord-primary" style="padding: 0.6rem 1.4rem; font-size: 0.92rem;">
+                Accept Invite (discord.gg/navigonepal)
+              </a>
+              <button class="dw-copy-link-btn" onclick="copyDiscordLink()" style="padding: 0.6rem 1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="dw-step-card">
+          <div class="dw-step-indicator">
+            <div class="dw-step-badge dw-step-badge-3">3</div>
+          </div>
+          <div class="dw-step-content">
+            <h3>
+              <span>Complete Verification &amp; Choose Your Roles</span>
+              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 minute</span>
+            </h3>
+            <p>
+              Upon entering the server, head over to the <code>#welcome-and-verify</code> channel. Click the green verification checkmark and select your role tag. This customizes your notifications so you only receive alerts relevant to your grade and interests!
+            </p>
+            <div class="dw-role-tags-list">
+              <span class="dw-role-tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                <span>Grade 10 / SEE Graduate</span>
+              </span>
+              <span class="dw-role-tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.35 19.4A2 2 0 0 0 6.09 22h11.82a2 2 0 0 0 1.74-2.6L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+                <span>+2 Science &amp; Engineering</span>
+              </span>
+              <span class="dw-role-tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+                <span>+2 Management &amp; Humanities</span>
+              </span>
+              <span class="dw-role-tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <span>Tech &amp; Programming</span>
+              </span>
+              <span class="dw-role-tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                <span>Eco Club &amp; Scouts</span>
+              </span>
+              <span class="dw-role-tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                <span>Mentor / Educator</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="dw-step-card">
+          <div class="dw-step-indicator">
+            <div class="dw-step-badge dw-step-badge-4">4</div>
+          </div>
+          <div class="dw-step-content">
+            <h3>
+              <span>RSVP to Upcoming Live Stages</span>
+              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>20 seconds</span>
+            </h3>
+            <p>
+              Check the <strong>"Events"</strong> tab at the very top of our Discord server. Find the workshop you want to attend (e.g. <em>Post-SEE Stream Diagnostic</em> or <em>Python &amp; AI Fundamentals</em>) and click <strong>"Interested"</strong>. Discord will automatically remind you 15 minutes before the session starts!
+            </p>
+            <div class="dw-step-actions">
+              <button class="dw-step-btn-pill" onclick="openRsvpModal('General Workshop Series')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                Set Web Reminder (Email / WhatsApp)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="dw-step-card">
+          <div class="dw-step-indicator">
+            <div class="dw-step-badge dw-step-badge-5">5</div>
+          </div>
+          <div class="dw-step-content">
+            <h3>
+              <span>Join the Live Stage &amp; Participate</span>
+              <span class="dw-step-time"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Workshop Day</span>
+            </h3>
+            <p>
+              When the workshop begins, click the <code>🎙️ Workshop Stage</code> channel. You will be able to listen in high-definition audio, watch the mentor's slides or live coding screen share, ask questions in the live <code>#workshop-qa</code> thread, and request to speak using the <em>Raise Hand</em> button.
+            </p>
+            <div class="dw-step-actions">
+              <span class="dw-step-time" style="background: rgba(16, 185, 129, 0.12); color: #10B981; font-weight: 700;">
+                ✓ Low Bandwidth Friendly (Runs smoothly on mobile data)
+              </span>
+              <span class="dw-step-time" style="background: rgba(37, 99, 235, 0.1); color: var(--elite-blue); font-weight: 700;">
+                ✓ Digital Certificate Attendance Form Shared At End
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- WORKSHOP TRACKS SECTION -->
   <section class="dw-section" id="tracks">
     <div class="container">
       
       <div class="dw-section-header">
-        <span class="dw-tag">Core Learning Tracks</span>
         <h2 class="dw-section-title">What Do We Cover in Discord Workshops?</h2>
         <p class="dw-section-desc">
           Our online workshops are divided into specialized streams designed to help secondary, high school, and early college students excel.
@@ -925,7 +921,6 @@
     <div class="container">
       
       <div class="dw-section-header">
-        <span class="dw-tag">Upcoming Live Calendar</span>
         <h2 class="dw-section-title">Next Scheduled Discord Stages</h2>
         <p class="dw-section-desc">
           Mark your calendar! All sessions take place in the <strong>Workshop Stage</strong> channel in Nepal Standard Time (NPT).
@@ -1010,7 +1005,6 @@
     <div class="container">
       
       <div class="dw-section-header">
-        <span class="dw-tag">Safe &amp; Inclusive Space</span>
         <h2 class="dw-section-title">Discord Workshop Community Guidelines</h2>
         <p class="dw-section-desc">
           Navigo Nepal is committed to maintaining an encouraging, safe, and academically focused community for all Nepali youth.
@@ -1059,7 +1053,6 @@
     <div class="container">
       
       <div class="dw-section-header">
-        <span class="dw-tag">Got Questions?</span>
         <h2 class="dw-section-title">Frequently Asked Questions</h2>
         <p class="dw-section-desc">
           Everything you need to know about joining and making the most of Navigo Nepal's Discord workshops.
@@ -1139,7 +1132,7 @@
         <p>Connect with peers who share your drive, get mentored by experienced youth leaders, and gain practical real-world skills that take you beyond classroom theory.</p>
         <div class="dw-hero-cta-group" style="margin-bottom: 0;">
           <a href="https://discord.gg/navigonepal" target="_blank" rel="noopener noreferrer" class="btn-cta-light">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 127.14 96.36" fill="#2563EB">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 127.14 96.36" fill="currentColor">
               <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.91,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,45.91,96.12,53,91.08,65.69,84.69,65.69Z"/>
             </svg>
             Join Discord Community Free

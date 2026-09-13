@@ -51,7 +51,281 @@
   --dw-blurple-glow: rgba(79, 156, 249, 0.4);
 }
 
-/* ==================== HERO SECTION ==================== */
+/* ==================== REFERENCE-INSPIRED HERO & SHOWCASE ==================== */
+.dw-ref-hero {
+  position: relative;
+  padding: 8.5rem 0 7rem;
+  background: linear-gradient(180deg, rgba(10, 35, 66, 0.76) 0%, rgba(6, 23, 47, 0.88) 100%),
+              url('../assets/workshop_hero_bg.jpg') center top / cover no-repeat;
+  text-align: center;
+  color: #ffffff;
+  overflow: visible;
+}
+
+[data-theme="dark"] .dw-ref-hero {
+  background: linear-gradient(180deg, rgba(6, 23, 47, 0.84) 0%, rgba(3, 12, 25, 0.94) 100%),
+              url('../assets/workshop_hero_bg.jpg') center top / cover no-repeat;
+}
+
+.dw-ref-hero-header {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.dw-ref-hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dw-ref-hl-orange {
+  color: #DE8229;
+}
+
+.dw-ref-hl-white {
+  color: #FFFFFF;
+}
+
+.dw-ref-hero-lead {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 760px;
+  margin: 0 auto 2.25rem;
+  font-weight: 400;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.dw-ref-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.5rem;
+  background: #DE8229;
+  color: #ffffff !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(222, 130, 41, 0.45);
+  transition: all 0.28s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.dw-ref-hero-btn:hover {
+  background: #c8701e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(222, 130, 41, 0.55);
+}
+
+.dw-ref-secondary-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* 3 Overlapping Reference Cards */
+.dw-ref-cards-wrapper {
+  position: relative;
+  z-index: 25;
+  margin-top: -65px;
+  margin-bottom: 3.5rem;
+  padding: 0 1.5rem;
+}
+
+.dw-ref-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.dw-ref-card {
+  position: relative;
+  padding: 3rem 2.2rem 3.5rem;
+  border-radius: 6px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 18px 42px rgba(10, 35, 66, 0.18);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.dw-ref-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(10, 35, 66, 0.25);
+}
+
+/* Dark Slate Teal Card */
+.dw-ref-card-dark {
+  background: #183B46;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Center Highlight Card (Orange) */
+.dw-ref-card-accent {
+  background: #DE8229;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dw-ref-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.dw-ref-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Anchored Bottom Buttons */
+.dw-ref-card-btn {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.72rem 2.2rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.dw-ref-card-btn-orange {
+  background: #DE8229;
+  color: #ffffff !important;
+}
+
+.dw-ref-card-btn-orange:hover {
+  background: #c8701e;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 8px 22px rgba(222, 130, 41, 0.45);
+}
+
+.dw-ref-card-btn-dark {
+  background: #183B46;
+  color: #ffffff !important;
+}
+
+.dw-ref-card-btn-dark:hover {
+  background: #102931;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 8px 22px rgba(24, 59, 70, 0.5);
+}
+
+/* Two-Column Story Section Below */
+.dw-ref-story-section {
+  padding: 4.5rem 0 5.5rem;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.dw-ref-story-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.dw-ref-story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dw-ref-story-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  font-weight: 800;
+  color: #183B46;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+[data-theme="dark"] .dw-ref-story-title {
+  color: #FFFFFF;
+}
+
+.dw-ref-story-text {
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.dw-ref-story-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  background: #DE8229;
+  color: #ffffff !important;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(222, 130, 41, 0.35);
+  transition: all 0.25s ease;
+}
+
+.dw-ref-story-btn:hover {
+  background: #c8701e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(222, 130, 41, 0.45);
+}
+
+.dw-ref-story-media {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(10, 35, 66, 0.12);
+}
+
+.dw-ref-story-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3/2;
+  transition: transform 0.4s ease;
+}
+
+.dw-ref-story-media:hover .dw-ref-story-img {
+  transform: scale(1.02);
+}
+
+/* ==================== HERO SECTION (LEGACY / FALLBACK) ==================== */
 .dw-hero {
   position: relative;
   padding: 8.5rem 0 5.5rem;
@@ -1269,15 +1543,15 @@
 
 /* ==================== CALL TO ACTION BANNER ==================== */
 .dw-cta-banner {
-  background: linear-gradient(135deg, #0A2342 0%, #12345D 48%, #06172F 100%);
+  background: linear-gradient(135deg, #DE8229 0%, #F59E0B 38%, #FBBF24 72%, #F4A261 100%);
   border-radius: var(--radius-xl);
   padding: 5rem 3rem;
   text-align: center;
-  color: #ffffff;
+  color: #0A2342;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 25px 65px rgba(10, 35, 66, 0.3), 0 0 40px rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(79, 156, 249, 0.25);
+  box-shadow: 0 25px 65px rgba(222, 130, 41, 0.28), 0 0 45px rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.55);
 }
 
 .dw-cta-banner::before {
@@ -1288,7 +1562,7 @@
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(79, 156, 249, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1300,7 +1574,7 @@
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200, 112, 30, 0.28) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1308,18 +1582,20 @@
   font-family: 'Outfit', sans-serif;
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 800;
-  color: #ffffff;
+  color: #0A2342;
   margin-bottom: 1rem;
   position: relative;
   z-index: 1;
+  letter-spacing: -0.02em;
 }
 
 .dw-cta-banner p {
   font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: #12345D;
   max-width: 660px;
   margin: 0 auto 2.25rem;
   line-height: 1.65;
+  font-weight: 500;
   position: relative;
   z-index: 1;
 }
@@ -1329,22 +1605,31 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.95rem 2.2rem;
-  background: #ffffff;
-  color: var(--primary-navy) !important;
+  background: #0A2342;
+  color: #ffffff !important;
   font-size: 1rem;
   font-weight: 700;
   border-radius: var(--radius-full);
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(10, 35, 66, 0.28);
   position: relative;
   z-index: 1;
 }
 
+.btn-cta-light svg {
+  fill: #ffffff;
+  transition: transform 0.2s ease;
+}
+
 .btn-cta-light:hover {
-  background: #f0f6ff;
+  background: #06172F;
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 30px rgba(10, 35, 66, 0.45);
+}
+
+.btn-cta-light:hover svg {
+  transform: scale(1.08);
 }
 
 .btn-cta-glass {
@@ -1352,14 +1637,14 @@
   align-items: center;
   gap: 0.6rem;
   padding: 0.95rem 1.8rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(10, 35, 66, 0.08);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #ffffff !important;
+  color: #0A2342 !important;
   font-size: 0.96rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(10, 35, 66, 0.28);
   text-decoration: none;
   transition: all 0.25s ease;
   position: relative;
@@ -1368,9 +1653,44 @@
 }
 
 .btn-cta-glass:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(10, 35, 66, 0.16);
+  border-color: #0A2342;
   transform: translateY(-2px);
+}
+
+/* Dark theme adaptation for CTA banner */
+[data-theme="dark"] .dw-cta-banner {
+  background: linear-gradient(135deg, #B45309 0%, #D97706 40%, #F59E0B 78%, #F4A261 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.55), 0 0 45px rgba(217, 119, 6, 0.25);
+}
+
+[data-theme="dark"] .dw-cta-banner h2 {
+  color: #06172F;
+}
+
+[data-theme="dark"] .dw-cta-banner p {
+  color: rgba(6, 23, 47, 0.88);
+}
+
+[data-theme="dark"] .dw-cta-banner .btn-cta-light {
+  background: #06172F;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .dw-cta-banner .btn-cta-light:hover {
+  background: #020914;
+}
+
+[data-theme="dark"] .dw-cta-banner .btn-cta-glass {
+  background: rgba(6, 23, 47, 0.1);
+  color: #06172F !important;
+  border-color: rgba(6, 23, 47, 0.32);
+}
+
+[data-theme="dark"] .dw-cta-banner .btn-cta-glass:hover {
+  background: rgba(6, 23, 47, 0.2);
+  border-color: #06172F;
 }
 
 /* ==================== MODAL STYLES ==================== */
@@ -1518,6 +1838,26 @@
 
 /* ==================== RESPONSIVE BREAKPOINTS ==================== */
 @media (max-width: 991px) {
+  .dw-ref-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    max-width: 580px;
+  }
+
+  .dw-ref-cards-wrapper {
+    margin-top: -50px;
+    margin-bottom: 4rem;
+  }
+
+  .dw-ref-story-grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .dw-ref-story-section {
+    padding: 3.5rem 0 4.5rem;
+  }
+
   .dw-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1541,6 +1881,26 @@
 }
 
 @media (max-width: 640px) {
+  .dw-ref-hero {
+    padding: 7.5rem 0 5.5rem;
+  }
+
+  .dw-ref-hero-title {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+  }
+
+  .dw-ref-card {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .dw-ref-card-title {
+    font-size: 1.4rem;
+  }
+
+  .dw-ref-story-title {
+    font-size: 1.85rem;
+  }
+
   .dw-step-card {
     grid-template-columns: 1fr;
     gap: 1rem;
