@@ -172,11 +172,34 @@
   box-shadow: 0 24px 50px rgba(10, 35, 66, 0.25);
 }
 
-/* Dark Slate Teal Card */
+/* Dark Slate Teal Card (Odd Frame) */
 .dw-ref-card-dark {
   background: #183B46;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+/* Reference Dot Matrix Pattern — Cyan 4-Row Grid */
+.dw-dot-matrix-pattern {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 154px; /* 11 columns of dots */
+  height: 56px; /* 4 rows of dots matching reference image */
+  background-image: radial-gradient(circle, #00D2FF 2px, transparent 2.5px);
+  background-size: 14px 14px;
+  background-repeat: repeat;
+  opacity: 0.55;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.dw-ref-card-dark:hover .dw-dot-matrix-pattern {
+  opacity: 0.95;
+  transform: translateY(-2px);
 }
 
 /* Center Highlight Card (Orange) */
@@ -194,6 +217,8 @@
   margin-bottom: 1rem;
   line-height: 1.3;
   letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
 }
 
 .dw-ref-card-desc {
@@ -202,6 +227,8 @@
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.5rem;
   flex-grow: 1;
+  position: relative;
+  z-index: 2;
 }
 
 /* Anchored Bottom Buttons */
@@ -686,26 +713,152 @@
   color: var(--text-muted);
 }
 
-/* Steps Timeline */
-.dw-steps-container {
+/* ==================== STEP-BY-STEP HOW TO JOIN (2 SCREEN FRAMES) ==================== */
+.dw-join-section {
+  position: relative;
+}
+
+.dw-join-frame {
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
-  max-width: 920px;
+  justify-content: center;
+  padding: clamp(1.75rem, 3.8vh, 3rem) 0;
+  scroll-margin-top: 80px;
+  box-sizing: border-box;
+}
+
+.dw-join-frame-1 {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dw-join-frame-2 {
+  background: var(--bg-card);
+}
+
+.dw-join-frame .dw-section-header {
+  margin: 0 auto clamp(0.9rem, 1.8vh, 1.5rem);
+  text-align: center;
+  max-width: 780px;
+}
+
+.dw-join-frame .dw-section-title {
+  font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.dw-join-frame .dw-section-desc {
+  font-size: clamp(0.85rem, 1.1vw, 0.96rem);
+  line-height: 1.48;
+  max-width: 640px;
   margin: 0 auto;
 }
 
-.dw-step-card {
+/* Frame Switcher Pill Navigation */
+.dw-join-frame-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.28rem 0.35rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.dw-join-frame-2 .dw-join-frame-nav {
+  background: var(--bg-main);
+}
+
+.dw-frame-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.dw-frame-pill:hover {
+  color: var(--text-main);
+}
+
+.dw-frame-pill.active {
+  background: var(--accent-color);
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.dw-frame-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.dw-frame-pill-arrow {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.dw-frame-jump-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dw-frame-jump-link:hover {
+  transform: translateY(2px);
+}
+
+/* Grids for Frame 1 (2 columns) and Frame 2 (3 columns) */
+.dw-steps-grid-2col {
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.dw-steps-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 1140px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* Step Cards */
+.dw-step-card {
+  display: flex;
+  flex-direction: column;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 2.25rem 2rem;
+  padding: 1.5rem 1.65rem;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.dw-join-frame-2 .dw-step-card {
+  background: var(--bg-main);
 }
 
 .dw-step-card:hover {
@@ -714,20 +867,47 @@
   box-shadow: var(--shadow-lg), 0 0 25px rgba(37, 99, 235, 0.06);
 }
 
-.dw-step-indicator {
+/* Dot matrix pattern on odd cards */
+.dw-step-card-pattern::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 112px;
+  height: 38px;
+  background-image: radial-gradient(circle, #00D2FF 1.8px, transparent 2.3px);
+  background-size: 14px 14px;
+  opacity: 0.3;
+  pointer-events: none;
+  border-radius: 3px;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+[data-theme="light"] .dw-step-card-pattern::after {
+  background-image: radial-gradient(circle, #0284C7 1.8px, transparent 2.3px);
+  opacity: 0.22;
+}
+
+.dw-step-card-pattern:hover::after {
+  opacity: 0.7;
+}
+
+.dw-step-card-top {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
 }
 
 .dw-step-badge {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 800;
   font-family: 'Outfit', sans-serif;
   transition: transform 0.25s ease;
@@ -761,58 +941,72 @@
   border: 1px solid rgba(79, 156, 249, 0.32);
 }
 
-.dw-step-content h3 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 0.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.dw-step-badge-5 {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(42, 157, 143, 0.15));
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.32);
 }
 
 .dw-step-time {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--text-muted);
   background: rgba(10, 35, 66, 0.05);
-  padding: 0.25rem 0.65rem;
+  padding: 0.22rem 0.6rem;
   border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 [data-theme="dark"] .dw-step-time {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.dw-step-content p {
+.dw-step-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.dw-step-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.45rem;
+  line-height: 1.3;
+}
+
+.dw-step-desc {
   color: var(--text-muted);
-  font-size: 0.98rem;
-  line-height: 1.65;
-  margin-bottom: 1.25rem;
+  font-size: 0.86rem;
+  line-height: 1.48;
+  margin-bottom: 0.95rem;
 }
 
 .dw-step-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
+  margin-top: auto;
+}
+
+.dw-step-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.45rem;
 }
 
 .dw-step-btn-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.55rem 1.15rem;
-  border-radius: var(--radius-full);
-  font-size: 0.88rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
   font-weight: 600;
   text-decoration: none;
   border: 1px solid var(--border-color);
   color: var(--text-main);
-  background: var(--bg-primary);
+  background: var(--bg-main);
   transition: all 0.2s ease;
 }
 
@@ -821,62 +1015,112 @@
   color: var(--elite-blue);
   border-color: var(--elite-blue);
   transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.1);
 }
 
 .dw-role-tags-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem;
+  margin-top: auto;
 }
 
 .dw-role-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
+  gap: 0.35rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  padding: 0.45rem 0.9rem;
-  border-radius: var(--radius-md);
-  background: var(--dw-accent-soft);
-  border: 1px solid var(--dw-accent-border);
-  color: var(--accent-color);
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: all 0.2s ease;
 }
 
 .dw-role-tag:hover {
-  background: rgba(37, 99, 235, 0.15);
+  background: rgba(37, 99, 235, 0.12);
   border-color: var(--elite-blue);
-  transform: translateY(-1px);
+  color: var(--text-main);
 }
 
 .dw-role-tag svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
+  width: 13px;
+  height: 13px;
+  color: var(--accent-color);
   flex-shrink: 0;
 }
 
+.dw-step-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.dw-step-feature-pill {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
 /* ==================== DISCORD APP INTERACTIVE PREVIEW ==================== */
+/* Simulator Section - Optimized for Single-Frame Viewport Fit */
+.dw-simulator-section {
+  padding: clamp(1.25rem, 2.5vh, 2rem) 0;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dw-simulator-section .dw-section-header {
+  margin: 0 auto clamp(0.6rem, 1.4vh, 1.15rem);
+  max-width: 680px;
+}
+
+.dw-simulator-section .dw-section-title {
+  font-size: clamp(1.5rem, 2.4vw, 2.15rem);
+  margin-bottom: 0.3rem;
+  line-height: 1.15;
+}
+
+.dw-simulator-section .dw-section-desc {
+  font-size: clamp(0.84rem, 1vw, 0.94rem);
+  line-height: 1.42;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
 .dw-app-preview-container {
   max-width: 1040px;
   margin: 0 auto;
   border-radius: var(--radius-xl);
   overflow: hidden;
   background: var(--dw-discord-darker);
-  box-shadow: 0 25px 70px rgba(10, 35, 66, 0.22), 0 0 35px var(--glow-1);
+  box-shadow: 0 20px 60px rgba(10, 35, 66, 0.2), 0 0 35px var(--glow-1);
   border: 1px solid var(--border-glass);
   color: var(--dw-discord-text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .dw-discord-header-bar {
   background: #111214;
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.15rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #232428;
+  flex-shrink: 0;
 }
 
 .dw-window-dots {
@@ -894,7 +1138,7 @@
 .dw-dot-green { background: #57F287; }
 
 .dw-window-title {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: #949BA4;
   letter-spacing: 0.02em;
@@ -902,8 +1146,9 @@
 
 .dw-discord-main-layout {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  min-height: 520px;
+  grid-template-columns: 240px 1fr;
+  height: clamp(380px, 52vh, 480px);
+  overflow: hidden;
 }
 
 /* Sidebar Channels */
@@ -912,50 +1157,55 @@
   border-right: 1px solid #232428;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .dw-server-header {
-  padding: 1.1rem 1rem;
+  padding: 0.75rem 0.95rem;
   border-bottom: 1px solid #1F2023;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 
 .dw-server-name {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .dw-verified-badge {
   background: #2563EB;
   color: #fff;
   border-radius: 50%;
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .dw-channel-tree {
-  padding: 0.85rem 0.5rem;
+  padding: 0.5rem 0.4rem;
   overflow-y: auto;
   flex-grow: 1;
+  scrollbar-width: thin;
+  scrollbar-color: #202225 transparent;
 }
 
 .dw-channel-cat {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #949BA4;
   letter-spacing: 0.05em;
-  padding: 0.75rem 0.5rem 0.35rem;
+  padding: 0.55rem 0.45rem 0.2rem;
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -964,11 +1214,11 @@
 .dw-channel-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.65rem;
+  gap: 0.45rem;
+  padding: 0.35rem 0.6rem;
   border-radius: var(--radius-sm);
   color: var(--dw-discord-channel);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -991,17 +1241,17 @@
 }
 
 .dw-channel-icon {
-  font-size: 1rem;
+  font-size: 0.92rem;
   opacity: 0.7;
 }
 
 .dw-badge-pill {
   margin-left: auto;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   background: var(--discord-red);
   color: #fff;
   font-weight: 700;
-  padding: 0.1rem 0.4rem;
+  padding: 0.08rem 0.35rem;
   border-radius: 10px;
 }
 
@@ -1010,45 +1260,71 @@
   background: var(--dw-discord-light-dark);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .dw-channel-top-bar {
-  padding: 0.95rem 1.25rem;
+  padding: 0.65rem 1.15rem;
   border-bottom: 1px solid #2B2D31;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 
 .dw-channel-current {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
   font-weight: 700;
   color: #ffffff;
-  font-size: 0.98rem;
+  font-size: 0.9rem;
 }
 
 .dw-stage-indicator-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.75rem;
+  gap: 0.3rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--discord-green);
   background: rgba(87, 242, 135, 0.12);
   border: 1px solid rgba(87, 242, 135, 0.25);
-  padding: 0.2rem 0.6rem;
+  padding: 0.15rem 0.55rem;
   border-radius: var(--radius-full);
 }
 
 .dw-channel-feed {
-  padding: 1.25rem;
+  padding: 0.85rem 1.15rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.75rem;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #202225 transparent;
+}
+
+.dw-channel-feed::-webkit-scrollbar,
+.dw-channel-tree::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dw-channel-feed::-webkit-scrollbar-track,
+.dw-channel-tree::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dw-channel-feed::-webkit-scrollbar-thumb,
+.dw-channel-tree::-webkit-scrollbar-thumb {
+  background: #202225;
+  border-radius: 3px;
+}
+
+.dw-channel-feed::-webkit-scrollbar-thumb:hover,
+.dw-channel-tree::-webkit-scrollbar-thumb:hover {
+  background: #111214;
 }
 
 /* Stage Spotlight Card */
@@ -1056,94 +1332,96 @@
   background: #232428;
   border: 1px solid #383A40;
   border-radius: var(--radius-md);
-  padding: 1.25rem;
+  padding: 0.75rem 0.9rem;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .dw-stage-banner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
+  gap: 0.5rem;
 }
 
 .dw-stage-title {
-  font-size: 1.1rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #ffffff;
 }
 
 .dw-speaker-tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.65rem;
+  margin-bottom: 0;
 }
 
 .dw-speaker-tile {
   background: #18191C;
   border: 2px solid var(--discord-green);
   border-radius: var(--radius-md);
-  padding: 1rem;
+  padding: 0.55rem 0.75rem;
   text-align: center;
   position: relative;
 }
 
 .dw-speaker-avatar {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  margin: 0 auto 0.5rem;
+  margin: 0 auto 0.35rem;
   display: block;
   object-fit: cover;
 }
 
 .dw-speaker-name {
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   color: #ffffff;
 }
 
 .dw-speaker-role {
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   color: #949BA4;
 }
 
 .dw-speaking-soundwave {
   display: inline-flex;
-  gap: 3px;
+  gap: 2.5px;
   align-items: flex-end;
-  height: 12px;
-  margin-top: 0.35rem;
+  height: 10px;
+  margin-top: 0.25rem;
 }
 
 .dw-soundbar {
-  width: 3px;
+  width: 2.5px;
   background: var(--discord-green);
   border-radius: 2px;
   animation: dwSoundWave 0.8s infinite ease-in-out alternate;
 }
-.dw-soundbar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
-.dw-soundbar:nth-child(2) { height: 12px; animation-delay: 0.3s; }
-.dw-soundbar:nth-child(3) { height: 8px; animation-delay: 0.2s; }
-.dw-soundbar:nth-child(4) { height: 10px; animation-delay: 0.4s; }
+.dw-soundbar:nth-child(1) { height: 5px; animation-delay: 0.1s; }
+.dw-soundbar:nth-child(2) { height: 10px; animation-delay: 0.3s; }
+.dw-soundbar:nth-child(3) { height: 7px; animation-delay: 0.2s; }
+.dw-soundbar:nth-child(4) { height: 9px; animation-delay: 0.4s; }
 
 @keyframes dwSoundWave {
-  0% { height: 4px; }
-  100% { height: 14px; }
+  0% { height: 3px; }
+  100% { height: 11px; }
 }
 
 /* Chat Messages */
 .dw-chat-message {
   display: flex;
-  gap: 0.85rem;
+  gap: 0.65rem;
   align-items: flex-start;
 }
 
 .dw-chat-avatar {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   flex-shrink: 0;
   object-fit: cover;
@@ -1152,52 +1430,53 @@
 .dw-chat-meta {
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 0.2rem;
+  gap: 0.4rem;
+  margin-bottom: 0.15rem;
 }
 
 .dw-chat-author {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: #ffffff;
 }
 
 .dw-author-badge {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   background: #2563EB;
   color: #ffffff;
-  padding: 0.1rem 0.35rem;
+  padding: 0.08rem 0.3rem;
   border-radius: 4px;
 }
 
 .dw-chat-time {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: #949BA4;
 }
 
 .dw-chat-text {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.42;
   color: #DBDEE1;
 }
 
 /* Discord Mock Input */
 .dw-discord-input-bar {
-  padding: 0.85rem 1.25rem;
+  padding: 0.55rem 1rem;
   background: var(--dw-discord-light-dark);
   border-top: 1px solid #2B2D31;
+  flex-shrink: 0;
 }
 
 .dw-mock-input {
   background: #383A40;
   border-radius: var(--radius-md);
-  padding: 0.65rem 1rem;
+  padding: 0.45rem 0.85rem;
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.55rem;
   color: #949BA4;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
 }
 
 /* ==================== WORKSHOP TRACKS GRID ==================== */
@@ -1234,6 +1513,32 @@
   border-color: var(--track-color, var(--elite-blue));
   transform: translateY(-5px);
   box-shadow: var(--shadow-xl), 0 0 30px rgba(37, 99, 235, 0.08);
+}
+
+/* Decorative dot matrix pattern on odd workshop track cards */
+.dw-track-card:nth-child(odd)::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 112px;
+  height: 42px; /* 3 rows x 8 cols */
+  background-image: radial-gradient(circle, #00D2FF 1.8px, transparent 2.3px);
+  background-size: 14px 14px;
+  opacity: 0.28;
+  pointer-events: none;
+  border-radius: 3px;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+[data-theme="light"] .dw-track-card:nth-child(odd)::after {
+  background-image: radial-gradient(circle, #0284C7 1.8px, transparent 2.3px);
+  opacity: 0.2;
+}
+
+.dw-track-card:nth-child(odd):hover::after {
+  opacity: 0.7;
 }
 
 .dw-track-icon {
@@ -1882,6 +2187,17 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  .dw-steps-grid-2col,
+  .dw-steps-grid-3col {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .dw-join-frame {
+    min-height: auto;
+    padding: 3rem 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1898,6 +2214,14 @@
     padding: 2.5rem 1.5rem 3rem;
   }
 
+  .dw-dot-matrix-pattern {
+    width: 112px;
+    height: 42px;
+    top: 10px;
+    right: 12px;
+    opacity: 0.45;
+  }
+
   .dw-ref-card-title {
     font-size: 1.4rem;
   }
@@ -1906,16 +2230,23 @@
     font-size: 1.85rem;
   }
 
-  .dw-step-card {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.5rem;
+  .dw-join-frame-nav {
+    flex-direction: column;
+    width: 100%;
+    border-radius: var(--radius-md);
   }
-  
-  .dw-step-indicator {
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
+
+  .dw-frame-pill {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dw-step-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dw-role-tags-list {
+    grid-template-columns: 1fr;
   }
   
   .dw-metrics-grid {
@@ -1938,5 +2269,26 @@
     right: auto;
     border-radius: 0;
     margin-top: -1px;
+  }
+
+  .dw-simulator-section {
+    padding: 1.5rem 0;
+  }
+
+  .dw-speaker-tiles {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .dw-speaker-tile {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .dw-speaker-name {
+    font-size: 0.76rem;
+  }
+
+  .dw-speaker-role {
+    font-size: 0.65rem;
   }
 }
