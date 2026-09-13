@@ -715,78 +715,132 @@
 
 /* ==================== STEP-BY-STEP HOW TO JOIN (SINGLE FRAME 5-CARD FLOW) ==================== */
 .dw-join-single-frame {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
-  padding: clamp(1.75rem, 3.2vh, 2.75rem) 0;
-  background: var(--bg-main);
+  padding: clamp(2rem, 3.8vh, 3.5rem) 0;
+  background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-card) 50%, var(--bg-main) 100%);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+  box-sizing: border-box;
+}
+
+.dw-join-single-frame .container {
+  max-width: 1640px;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .dw-join-single-frame .dw-section-header {
   text-align: center;
-  max-width: 820px;
-  margin: 0 auto clamp(0.9rem, 1.8vh, 1.5rem);
+  max-width: 860px;
+  margin: 0 auto clamp(1.2rem, 2.2vh, 1.85rem);
+}
+
+.dw-join-single-frame .dw-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.95rem;
+  border-radius: var(--radius-full);
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  color: var(--elite-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
 }
 
 .dw-join-single-frame .dw-section-title {
-  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+  font-size: clamp(1.85rem, 2.8vw, 2.6rem);
   font-weight: 800;
   letter-spacing: -0.025em;
-  margin-bottom: 0.35rem;
-  line-height: 1.2;
+  margin-bottom: 0.45rem;
+  line-height: 1.18;
 }
 
 .dw-join-single-frame .dw-section-desc {
-  font-size: clamp(0.85rem, 1vw, 0.95rem);
-  line-height: 1.45;
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  line-height: 1.55;
   color: var(--text-muted);
-  max-width: 660px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
-/* 5-Column Flow Grid */
+/* 5-Column Flow Grid - Large Widescreen Fit */
 .dw-steps-flow-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0.85rem;
-  max-width: 1280px;
+  gap: 1.25rem;
+  max-width: 100%;
   margin: 0 auto;
   align-items: stretch;
 }
 
-/* Flow Card */
+/* Flow Card - Substantial, Balanced & Rich */
 .dw-step-flow-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 1.15rem 1rem;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 1.65rem 1.35rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
   height: 100%;
-  min-height: 310px;
+  min-height: 440px;
+}
+
+[data-theme="dark"] .dw-step-flow-card {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
 }
 
 .dw-step-flow-card:hover {
-  border-color: rgba(37, 99, 235, 0.32);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg), 0 0 22px rgba(37, 99, 235, 0.08);
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 28px rgba(37, 99, 235, 0.14);
 }
 
-/* Dot matrix pattern on odd cards (Cards 1, 3, 5) */
+/* Accent top stripe on each card */
+.dw-step-card-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--border-color);
+  transition: height 0.25s ease;
+}
+
+.dw-card-step-1 .dw-step-card-stripe { background: #2563EB; }
+.dw-card-step-2 .dw-step-card-stripe { background: #5865F2; }
+.dw-card-step-3 .dw-step-card-stripe { background: #F59E0B; }
+.dw-card-step-4 .dw-step-card-stripe { background: #8B5CF6; }
+.dw-card-step-5 .dw-step-card-stripe { background: #10B981; }
+
+.dw-step-flow-card:hover .dw-step-card-stripe {
+  height: 5px;
+}
+
+/* Dot matrix watermark on odd cards */
 .dw-step-card-pattern::after {
   content: '';
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 76px;
-  height: 28px;
+  bottom: 8px;
+  right: 8px;
+  width: 80px;
+  height: 36px;
   background-image: radial-gradient(circle, #00D2FF 1.5px, transparent 2px);
-  background-size: 10px 10px;
-  opacity: 0.28;
+  background-size: 9px 9px;
+  opacity: 0.16;
   pointer-events: none;
   border-radius: 3px;
   transition: opacity 0.3s ease;
@@ -795,11 +849,11 @@
 
 [data-theme="light"] .dw-step-card-pattern::after {
   background-image: radial-gradient(circle, #0284C7 1.5px, transparent 2px);
-  opacity: 0.2;
+  opacity: 0.14;
 }
 
 .dw-step-flow-card:hover.dw-step-card-pattern::after {
-  opacity: 0.65;
+  opacity: 0.45;
 }
 
 /* Card Top Section */
@@ -807,126 +861,153 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   position: relative;
   z-index: 1;
 }
 
 .dw-step-badge {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 800;
   font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
   transition: transform 0.25s ease;
 }
 
 .dw-step-flow-card:hover .dw-step-badge {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .dw-step-badge-1 {
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(79, 156, 249, 0.14));
   color: #2563EB;
-  border: 1px solid rgba(37, 99, 235, 0.3);
+  border: 1px solid rgba(37, 99, 235, 0.32);
 }
 
 .dw-step-badge-2 {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(42, 157, 143, 0.14));
-  color: #10B981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, rgba(88, 101, 242, 0.15), rgba(114, 137, 218, 0.15));
+  color: #5865F2;
+  border: 1px solid rgba(88, 101, 242, 0.32);
 }
 
 .dw-step-badge-3 {
-  background: linear-gradient(135deg, rgba(244, 162, 97, 0.16), rgba(245, 158, 11, 0.16));
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(244, 162, 97, 0.15));
   color: #D97706;
-  border: 1px solid rgba(244, 162, 97, 0.32);
+  border: 1px solid rgba(245, 158, 11, 0.32);
 }
 
 .dw-step-badge-4 {
-  background: linear-gradient(135deg, rgba(79, 156, 249, 0.16), rgba(37, 99, 235, 0.16));
-  color: #2563EB;
-  border: 1px solid rgba(79, 156, 249, 0.32);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.15));
+  color: #7C3AED;
+  border: 1px solid rgba(139, 92, 246, 0.32);
 }
 
 .dw-step-badge-5 {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(42, 157, 143, 0.16));
-  color: #10B981;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
+  color: #059669;
   border: 1px solid rgba(16, 185, 129, 0.32);
 }
 
 .dw-step-time {
-  font-size: 0.7rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--text-muted);
   background: rgba(10, 35, 66, 0.05);
-  padding: 0.2rem 0.5rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.32rem;
+  border: 1px solid var(--border-color);
 }
 
 [data-theme="dark"] .dw-step-time {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Card Content */
 .dw-step-flow-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
   position: relative;
   z-index: 1;
 }
 
 .dw-step-flow-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.96rem;
-  font-weight: 700;
+  font-size: 1.18rem;
+  font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.45rem;
   line-height: 1.25;
 }
 
 .dw-step-flow-desc {
   color: var(--text-muted);
-  font-size: 0.78rem;
-  line-height: 1.42;
-  margin-bottom: 0.75rem;
+  font-size: 0.84rem;
+  line-height: 1.48;
+  margin: 0;
 }
 
 .dw-step-flow-desc code {
-  font-size: 0.72rem;
-  padding: 0.1rem 0.3rem;
+  font-size: 0.76rem;
+  padding: 0.12rem 0.32rem;
   background: rgba(37, 99, 235, 0.08);
   color: var(--elite-blue);
   border-radius: 4px;
 }
 
-.dw-step-flow-footer {
-  margin-top: auto;
+/* Bullet Highlights List */
+.dw-step-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0.85rem 0 1.25rem;
   display: flex;
   flex-direction: column;
+  gap: 0.45rem;
+}
+
+.dw-step-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.dw-step-highlight-item svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* Card Footer */
+.dw-step-flow-footer {
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* Apps Grid (Step 1) */
 .dw-step-apps-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .dw-step-app-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.36rem 0.35rem;
-  font-size: 0.72rem;
+  gap: 0.4rem;
+  padding: 0.5rem 0.45rem;
+  font-size: 0.76rem;
   font-weight: 600;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-color);
@@ -935,6 +1016,10 @@
   text-decoration: none;
   transition: all 0.2s ease;
   text-align: center;
+}
+
+.dw-step-app-link svg {
+  flex-shrink: 0;
 }
 
 .dw-step-app-link:hover {
@@ -944,76 +1029,124 @@
   transform: translateY(-1px);
 }
 
+/* Action Stack (Step 2 & 4) */
+.dw-step-actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.dw-step-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.58rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dw-step-primary-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+.dw-step-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.dw-step-secondary-btn:hover {
+  color: var(--text-main);
+  border-color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .dw-step-secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 /* Roles Badges (Step 3) */
 .dw-step-roles-mini {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.3rem;
+  gap: 0.4rem;
 }
 
 .dw-step-role-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 0.68rem;
+  gap: 0.35rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  padding: 0.28rem 0.3rem;
+  padding: 0.42rem 0.45rem;
   border-radius: var(--radius-sm);
   background: var(--bg-main);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
-  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: all 0.2s ease;
 }
 
+.dw-role-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 .dw-step-role-badge:hover {
   color: var(--text-main);
   border-color: var(--elite-blue);
+  background: rgba(37, 99, 235, 0.06);
 }
 
-/* Step Action Button Pill (Step 4) */
-.dw-step-btn-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.42rem 0.6rem;
-  border-radius: var(--radius-md);
-  font-size: 0.76rem;
-  font-weight: 600;
-  text-decoration: none;
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  background: var(--bg-main);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.dw-step-btn-pill:hover {
-  background: rgba(37, 99, 235, 0.08);
-  color: var(--elite-blue);
-  border-color: var(--elite-blue);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.1);
+/* Subnote (Step 4) */
+.dw-step-subnote {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-align: center;
+  display: block;
 }
 
 /* Features Mini (Step 5) */
 .dw-step-features-mini {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.45rem;
 }
 
 .dw-step-mini-pill {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.28rem 0.5rem;
+  padding: 0.44rem 0.65rem;
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 /* ==================== DISCORD APP INTERACTIVE PREVIEW ==================== */
@@ -2048,15 +2181,30 @@
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 0.75rem;
-    padding: 0.35rem 0.25rem 0.85rem;
+    gap: 0.85rem;
+    padding: 0.35rem 0.25rem 1rem;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--elite-blue) transparent;
+  }
+
+  .dw-steps-flow-grid::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .dw-steps-flow-grid::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .dw-steps-flow-grid::-webkit-scrollbar-thumb {
+    background: rgba(37, 99, 235, 0.4);
+    border-radius: 4px;
   }
 
   .dw-step-flow-card {
-    flex: 0 0 240px;
+    flex: 0 0 250px;
     scroll-snap-align: start;
-    min-height: 290px;
+    min-height: 310px;
   }
 }
 
