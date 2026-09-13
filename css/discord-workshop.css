@@ -1635,90 +1635,7 @@
   transform: translateY(-1px);
 }
 
-/* ==================== WORKSHOP SCHEDULE TABLE / CARDS ==================== */
-.dw-schedule-wrapper {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
 
-.dw-session-row {
-  display: grid;
-  grid-template-columns: 170px 1fr auto;
-  gap: 1.5rem;
-  align-items: center;
-  padding: 1.65rem 2rem;
-  border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.2s ease;
-}
-
-.dw-session-row:last-child {
-  border-bottom: none;
-}
-
-.dw-session-row:hover {
-  background-color: rgba(37, 99, 235, 0.03);
-}
-
-[data-theme="dark"] .dw-session-row:hover {
-  background-color: rgba(79, 156, 249, 0.05);
-}
-
-.dw-session-datetime {
-  display: flex;
-  flex-direction: column;
-}
-
-.dw-session-day {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--accent-color);
-}
-
-.dw-session-time {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.dw-session-details h4 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 0.35rem;
-}
-
-.dw-session-details p {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin-bottom: 0.5rem;
-}
-
-.dw-session-meta-tags {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.dw-session-tag {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.22rem 0.65rem;
-  border-radius: var(--radius-full);
-  background: rgba(10, 35, 66, 0.05);
-  color: var(--text-muted);
-  border: 1px solid var(--border-color);
-}
-
-[data-theme="dark"] .dw-session-tag {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-muted);
-}
 
 /* ==================== COMMUNITY RULES & CODE OF CONDUCT ==================== */
 .dw-rules-grid {
@@ -2181,11 +2098,6 @@
   
   .dw-discord-sidebar {
     display: none; /* Hide simulated sidebar on tablet/mobile */
-  }
-
-  .dw-session-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   .dw-steps-grid-2col,
