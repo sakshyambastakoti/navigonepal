@@ -1,8 +1,7 @@
-# Navigo Nepal — Master Homepage UI Design System & Replication Guide (`docs/design.md`)
+# Navigo Nepal — Master Homepage UI Design System & Replication Guide
 
 > **Official Design Blueprint & UI Specification**  
-> Use this document to replicate the exact homepage look, color palette, typography hierarchy, component structures, interactive elements, and micro-animations across all existing pages (e.g., `discord-workshop.html`, `programs.html`, `past-events.html`, `team.html`, `our-story.html`) and all future upgrades.  
-> Also available at root: [`HOMEPAGE_UI_DESIGN_SYSTEM.md`](../HOMEPAGE_UI_DESIGN_SYSTEM.md)
+> Use this document to replicate the exact homepage look, color palette, typography hierarchy, component structures, interactive elements, and micro-animations across all existing pages (e.g., `discord-workshop.html`, `programs.html`, `past-events.html`, `team.html`, `our-story.html`) and all future upgrades.
 
 ---
 
@@ -59,7 +58,7 @@ Navigo Nepal's homepage features a **high-impact, international-grade editorial 
 | **Luxury Blue (Glow/Hover)**| `#4F9CF9` | `rgb(79, 156, 249)`| Gradient endpoints, dark mode link highlights |
 | **Soft Sky** | `#DCEEFF` | `rgb(220, 238, 255)`| Light mode hover backgrounds, subtle glow tint |
 | **Emerald Green** | `#10B981` | `rgb(16, 185, 129)`| Success badges, green accent bar segment |
-| **Teal Accent** | `#2A9D8F` | `rgb(42, 157, 143)`| Nav active underline, green hero CTA button |
+| **Teal Accent** | `#2A9D8F` | `rgb(42, 157, 143)`| Navbar active underline, green hero CTA button |
 | **Warm Amber / Yellow** | `#F4A261` | `rgb(244, 162, 97)`| Section title highlights, yellow CTA button, badge border |
 | **Badge Orange** | `#E87A24` | `rgb(232, 122, 36)`| Challenge/Response numbered badges & highlight tags |
 | **Grassroots Crimson Red** | `#DC2626` / `#E63946` | `rgb(220, 38, 38)` | Red accent bar segment, map hover fill |
@@ -225,6 +224,8 @@ To maintain the rhythm of the homepage:
 
 ### 6.1 Sticky Frosted Glass Navbar
 
+Place this navigation bar at the top of your page:
+
 ```html
 <nav class="navbar" id="mainNav">
   <div class="nav-container">
@@ -279,8 +280,11 @@ To maintain the rhythm of the homepage:
 
 ### 6.2 Editorial Hero Section
 
+To create a powerful editorial hero matching `index.html`:
+
 ```html
 <header class="section hero-map-section" id="hero">
+  <!-- Optional: Background Slideshow / Video -->
   <div class="hero-video-bg-container">
     <div class="hero-bg-slideshow" id="heroBgSlideshow">
       <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=1920&q=80" alt="" class="hero-bg-slide active">
@@ -328,9 +332,12 @@ To maintain the rhythm of the homepage:
 
 ### 6.3 Infinite Marquee Ticker Banner
 
+Place immediately below the hero to give dynamic movement and instant impact credibility:
+
 ```html
 <div class="marquee-banner" style="background: #000000 !important; border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); height: 58px;">
   <div class="marquee-track">
+    <!-- Track 1 -->
     <div class="marquee-content">
       <div class="marquee-item">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--elite-blue)" stroke-width="2.5" style="margin-right: 0.75rem;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
@@ -349,6 +356,7 @@ To maintain the rhythm of the homepage:
         Post-SEE Stream Guidance
       </div>
     </div>
+    <!-- Track 2 (Exact Duplicate for seamless infinite loop) -->
     <div class="marquee-content">
       <div class="marquee-item">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--elite-blue)" stroke-width="2.5" style="margin-right: 0.75rem;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
@@ -375,6 +383,8 @@ To maintain the rhythm of the homepage:
 
 ### 6.4 Multi-Segment Grassroots Accent Bars
 
+Use either the 4-segment hero bar or the 3-segment section header bar above any headline:
+
 ```html
 <!-- 3-Segment Bar (Standard Sections) -->
 <div class="nv-coord-accent-bar" style="justify-content: flex-start; margin-bottom: 0.75rem;">
@@ -396,21 +406,27 @@ To maintain the rhythm of the homepage:
 
 ### 6.5 Bebas Neue Grassroots Section Headers
 
+The signature headline style from the homepage ("Past Projects", "How Are We Unique?", "The Coordinators"):
+
 ```html
 <div class="nv-coord-header reveal">
+  <!-- Accent Bar -->
   <div class="nv-coord-accent-bar" style="justify-content: flex-start;">
     <span class="nv-coord-seg nv-coord-seg--red"></span>
     <span class="nv-coord-seg nv-coord-seg--amber"></span>
     <span class="nv-coord-seg nv-coord-seg--green"></span>
   </div>
 
+  <!-- Eyebrow -->
   <p class="nv-coord-eyebrow" style="text-align: left;">Virtual Learning Hub</p>
 
+  <!-- Two-Line Bebas Neue Title with Amber Accent -->
   <h2 class="nv-coord-title">
     Interactive Stages<br>
     <span class="nv-coord-title-accent">&amp; Student Circles.</span>
   </h2>
 
+  <!-- Muted Subtitle -->
   <p class="nv-coord-subtitle">
     Connect directly with mentors, engage in peer debates, and master new skills in a collaborative community.
   </p>
@@ -421,8 +437,11 @@ To maintain the rhythm of the homepage:
 
 ### 6.6 Challenge & Response Numbered Arrow Cards
 
+One of the most distinctive elements from the homepage, featuring custom SVG chevron/arrow badges:
+
 ```html
 <div class="cr-card">
+  <!-- SVG Numbered Badge -->
   <div class="cr-badge-wrap">
     <svg class="cr-badge-svg" width="76" height="56" viewBox="0 0 76 56" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path class="cr-badge-outer" d="M 8 2 H 44 L 62 26 L 44 50 H 8 C 4.7 50 2 47.3 2 44 V 8 C 2 4.7 4.7 2 8 2 Z" stroke="#E87A24" stroke-width="2.2" fill="none" />
@@ -431,6 +450,7 @@ To maintain the rhythm of the homepage:
     </svg>
   </div>
 
+  <!-- Content -->
   <div class="cr-card-content">
     <h3 class="cr-card-title">
       Isolated Studying <span class="cr-title-arrow">→</span> Collaborative Peer Growth
@@ -446,15 +466,19 @@ To maintain the rhythm of the homepage:
 
 ### 6.7 Team & Coordinator Grid Cards
 
+High-contrast profile cards with photo overlays, golden accents, and role overlines:
+
 ```html
 <div class="nv-coord-grid">
   <div class="nv-coord-card reveal">
     <div class="nv-coord-card-glow" aria-hidden="true"></div>
     <div class="nv-coord-card-inner">
+      <!-- Profile Image -->
       <div class="nv-coord-card-img-wrap">
         <img src="assets/members/prasoon-bhatta.jpeg" alt="Member Name" class="nv-coord-card-img" loading="lazy">
         <div class="nv-coord-card-img-overlay"></div>
       </div>
+      <!-- Profile Content -->
       <div class="nv-coord-card-content">
         <span class="nv-coord-card-role">Operations / Workshop Lead</span>
         <h3 class="nv-coord-card-name">Prasoon Bhatta</h3>
@@ -472,19 +496,25 @@ To maintain the rhythm of the homepage:
 
 ### 6.8 Interactive Filter Tabs & Data Tables
 
+Clean editorial tab buttons (`border-radius: 0px`) and responsive striped data tables:
+
 ```html
+<!-- Interactive Tabs -->
 <div class="tabs-container reveal">
   <button class="project-tab active" data-tab="tab-1">General Track</button>
   <button class="project-tab" data-tab="tab-2">Coding Labs</button>
   <button class="project-tab" data-tab="tab-3">Leadership Stage</button>
 </div>
 
+<!-- Tab Content -->
 <div class="tab-content active" id="tab-1">
+  <!-- Info Highlight Box -->
   <div class="info-highlight">
     <h4>Stream Counseling Track</h4>
     <p>Bridging the transitional gap after basic schooling (grade 10 SEE) so students can select their academic stream wisely.</p>
   </div>
 
+  <!-- Data Table -->
   <div class="table-wrapper">
     <table class="past-projects-table">
       <thead>
@@ -518,6 +548,8 @@ To maintain the rhythm of the homepage:
 
 ### 6.9 Horizontal Metrics & Stats Bar
 
+Use this horizontal metric row to demonstrate reach and credibility:
+
 ```html
 <div class="cr-stats-row reveal">
   <div class="cr-stat-item">
@@ -541,8 +573,11 @@ To maintain the rhythm of the homepage:
 
 ### 6.10 Editorial Quote & Video Embed Block
 
+Editorial founder/leadership quote with video embed from `index.html`:
+
 ```html
 <div class="fs-story-grid reveal">
+  <!-- Left: Content & Quote -->
   <div class="fs-story-content-wrapper">
     <div class="fs-quote-icon-container">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -555,6 +590,7 @@ To maintain the rhythm of the homepage:
     </p>
   </div>
 
+  <!-- Right: Video Frame with Back Glow -->
   <div class="fs-story-video-container">
     <div class="fs-video-glow"></div>
     <div class="fs-story-video">
@@ -567,6 +603,8 @@ To maintain the rhythm of the homepage:
 ---
 
 ### 6.11 Glassmorphism Panels & Hover Cards
+
+Clean cards with top edge gradient highlight lines:
 
 ```html
 <div class="glass-panel glass-panel-hover">
@@ -602,6 +640,8 @@ To maintain the rhythm of the homepage:
 ---
 
 ### 6.13 Universal Premium 4-Column Footer
+
+Place this standard footer across every page:
 
 ```html
 <footer class="footer">
@@ -685,6 +725,8 @@ To maintain the rhythm of the homepage:
 ---
 
 ### 6.14 Form Controls, QR Donation & Modals
+
+For lead captures, inquiries, and donations:
 
 ```html
 <form class="contact-form">

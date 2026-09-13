@@ -56,7 +56,7 @@
   position: relative;
   padding: 8.5rem 0 7rem;
   background: linear-gradient(180deg, rgba(10, 35, 66, 0.76) 0%, rgba(6, 23, 47, 0.88) 100%),
-              url('../assets/workshop_hero_bg.jpg') center top / cover no-repeat;
+              url('../assets/photo4jpg.jpg') center top / cover no-repeat;
   text-align: center;
   color: #ffffff;
   overflow: visible;
@@ -64,7 +64,7 @@
 
 [data-theme="dark"] .dw-ref-hero {
   background: linear-gradient(180deg, rgba(6, 23, 47, 0.84) 0%, rgba(3, 12, 25, 0.94) 100%),
-              url('../assets/workshop_hero_bg.jpg') center top / cover no-repeat;
+              url('../assets/photo4jpg.jpg') center top / cover no-repeat;
 }
 
 .dw-ref-hero-header {
@@ -75,11 +75,12 @@
 }
 
 .dw-ref-hero-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6.8vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   margin-bottom: 1.25rem;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
@@ -93,6 +94,7 @@
 }
 
 .dw-ref-hero-lead {
+  font-family: 'Inter', sans-serif;
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.92);
@@ -314,10 +316,12 @@
 
 .dw-ref-story-img {
   width: 100%;
+  max-height: 540px;
   height: auto;
   display: block;
   object-fit: cover;
-  aspect-ratio: 3/2;
+  object-position: center top;
+  border-radius: 8px;
   transition: transform 0.4s ease;
 }
 
@@ -1886,7 +1890,8 @@
   }
 
   .dw-ref-hero-title {
-    font-size: clamp(2rem, 7vw, 2.6rem);
+    font-size: clamp(2.4rem, 8vw, 3.4rem);
+    line-height: 1.05;
   }
 
   .dw-ref-card {
