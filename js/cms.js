@@ -271,7 +271,7 @@ const NAVIGO_CMS = {
       category: "Academic Strategy & Physics",
       date: "August 18, 2024",
       author: "Prithivi Raj Poudel",
-      authorRole: "Research & Presentation Head",
+      authorRole: "Research & Development Head",
       authorAvatar: "assets/members/prithivi.png",
       readTime: "5 min read",
       excerpt: "Passing in physics sounds like a miracle for a huge number of students. But to obtain passing marks, you don't need magic—you just need to focus on the right things and study strategically.",

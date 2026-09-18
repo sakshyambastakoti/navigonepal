@@ -25,11 +25,11 @@ Below is the complete roster of ID cards generated from the website roles and up
 | **NVG-2026-003** | Prajwal Dhungana | Co-Founder & Programs Director | +977 980-1234569 | prajwal.dhungana@navigonepal.org |
 | **NVG-2026-004** | Prasoon Bhatta | Operations/HR Head | **+977 976-8422422** | prasoon.bhatta@navigonepal.org |
 | **NVG-2026-005** | Sakshyam Bastakoti | IT/Media Head | **+977 976-3374079** | **sakshyamxeetri@gmail.com** |
-| **NVG-2026-006** | Usnish Bajracharya | Design & Editing Head | **+977 981-3123920** | **ushnish2022@gmail.com** |
+| **NVG-2026-006** | Usnish Bajracharya | Multimedia Head | **+977 981-3123920** | **ushnish2022@gmail.com** |
 | **NVG-2026-007** | Shalin Dahal (Sahil) | Communication Head | **+977 981-8277423** | **samriddhidahal713@gmail.com** |
 | **NVG-2026-008** | Ansu Adhikari | Executive Member | **+977 976-2565335** | **adhikariansu05@gmail.com** |
 | **NVG-2026-009** | Abhi KC | Documentation Head | **+977 976-4320750** | **acedabhi.17@gmail.com** |
-| **NVG-2026-010** | Prithivi Raj Poudel | Research & Presentation Head | **+977 981-8354090** | prithivi.poudel@navigonepal.org |
+| **NVG-2026-010** | Prithivi Raj Poudel | Research & Development Head | **+977 981-8354090** | prithivi.poudel@navigonepal.org |
 | **NVG-2026-011** | Sakshyam Bista | Outreach Head | **+977 976-3374079** | **sakshyam.bista12@gmail.com** |
 | **NVG-2026-012** | Gaurav Acharya | Logistics Head | **+977 976-8422422** | **thegauravacharya1@gmail.com** (`@gaurav.acharya1`) |
 | **NVG-2026-013** | Ujjwal Dhungana | Consultant / Entrepreneur (Advisor) | +977 980-9990001 | ujjwal.dhungana@navigonepal.org |

@@ -13,11 +13,11 @@ This document contains the exact extracted phone numbers, email addresses, socia
 | **NVG-2026-003** | 3 | **Prajwal Dhungana** | Co-Founder & Programs Director | `+977 980-1234569` | `prajwal.dhungana@navigonepal.org` | `@prajwal.dhungana` | `navigonepal.org/idcard/3` | Co-Founders |
 | **NVG-2026-004** | 4 | **Prasoon Bhatta** | Operations/HR Head | `+977 976-8422422` | `prasoonbhattaoo9@gmail.com` | `@prasoon.bhatta` | `navigonepal.org/idcard/4` | Core Team |
 | **NVG-2026-005** | 5 | **Sakshyam Bastakoti** | IT/Media Head | `+977 976-4320750` | `sakshyamxeetri@gmail.com` | `@sakshyam.bastakoti` | `navigonepal.org/idcard/5` | Core Team |
-| **NVG-2026-006** | 6 | **Usnish Bajracharya** | Design & Editing Head | `+977 981-3123920` | `ushnish2022@gmail.com` | `@usnish.bajra` | `navigonepal.org/idcard/6` | Core Team |
+| **NVG-2026-006** | 6 | **Usnish Bajracharya** | Multimedia Head | `+977 981-3123920` | `ushnish2022@gmail.com` | `@usnish.bajra` | `navigonepal.org/idcard/6` | Core Team |
 | **NVG-2026-007** | 7 | **Shalin Dahal (Sahil)** | Communication Head | `+977 981-8277423` | `samriddhidahal713@gmail.com` | `@shalin.dahal` | `navigonepal.org/idcard/7` | Core Team |
 | **NVG-2026-008** | 8 | **Ansu Adhikari** | Executive Member | `+977 976-2565335` | `adhikariansu05@gmail.com` | `@ansu.adhikari` | `navigonepal.org/idcard/8` | Core Team |
 | **NVG-2026-009** | 9 | **Abhi KC** | Documentation Head | `+977 982-1212333` | `acedabhi.17@gmail.com` | `@abhi.kc` | `navigonepal.org/idcard/9` | Core Team |
-| **NVG-2026-010** | 10 | **Prithivi Raj Poudel** | Research & Presentation Head | `+977 981-8354090` | `prithvipoudel66@gmail.com` | `@prithivi_poudel` | `navigonepal.org/idcard/10` | Core Team |
+| **NVG-2026-010** | 10 | **Prithivi Raj Poudel** | Research & Development Head | `+977 981-8354090` | `prithvipoudel66@gmail.com` | `@prithivi_poudel` | `navigonepal.org/idcard/10` | Core Team |
 | **NVG-2026-011** | 11 | **Sakshyam Bista** | Outreach Head | `+977 976-3374079` | `sakshyam.bista12@gmail.com` | `@sakshyam.bista` | `navigonepal.org/idcard/11` | Core Team |
 | **NVG-2026-012** | 12 | **Gaurav Acharya** | Logistics Head | `+977 976-4398570` | `thegauravacharya1@gmail.com` | `@gaurav.acharya1` | `navigonepal.org/idcard/12` | Core Team |
 | **NVG-2026-013** | 13 | **Ujjwal Dhungana** | Consultant / Entrepreneur | `+977 980-9990001` | `ujjwal.dhungana@navigonepal.org` | `@ujjwal.dhungana` | `navigonepal.org/idcard/13` | Advisory Board |
