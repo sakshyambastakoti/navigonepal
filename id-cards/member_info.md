@@ -25,7 +25,9 @@ This document contains the exact extracted phone numbers, email addresses, socia
 | **NVG-2026-015** | 15 | **Santosh Gajureal** | Consultant | `+977 980-9990003` | `santosh.gajureal@navigonepal.org` | `@santosh.gajureal` | `navigonepal.org/idcard/15` | Advisory Board |
 | **NVG-2026-016** | 16 | **Swapnil Sapkota** | Alumni & Founding Member | `+977 980-8880001` | `swapnil.sapkota@navigonepal.org` | `@swapnil.sapkota` | `navigonepal.org/idcard/16` | Alumni |
 | **NVG-2026-017** | 17 | **Atal Raj Paudel** | Alumni & Founding Member | `+977 980-8880002` | `atal.paudel@navigonepal.org` | `@atal.paudel` | `navigonepal.org/idcard/17` | Alumni |
-| **NVG-2026-018+** | 18+ | **Upcoming New Members** | Dynamic Assignment | `Auto` | `Auto` | `@navigonepal` | `navigonepal.org/idcard/{N}` | Dynamic |
+| **NVG-2026-018** | 18 | **Zenith Kandel** | IT Executive | `+977 980-0000001` | `zenith@zenithkandel.com.np` | `@zenithkandel` | `navigonepal.org/idcard/18` | Core Team |
+| **NVG-2026-019** | 19 | **Prajwal** | Multimedia Executive | `+977 980-0000002` | `prajwal@navigonepal.org` | `@prajwal` | `navigonepal.org/idcard/19` | Core Team |
+| **NVG-2026-020+** | 20+ | **Upcoming New Members** | Dynamic Assignment | `Auto` | `Auto` | `@navigonepal` | `navigonepal.org/idcard/{N}` | Dynamic |
 
 ---
 

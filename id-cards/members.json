@@ -236,5 +236,33 @@
     "issueDate": "2026-01-15",
     "validTill": "2028-01-15",
     "emergencyContact": "+977 980-8880002"
+  },
+  {
+    "id": "NVG-2026-018",
+    "name": "Zenith Kandel",
+    "post": "IT Executive",
+    "category": "Core Team",
+    "phone": "+977 980-0000001",
+    "email": "zenith@zenithkandel.com.np",
+    "social": "@zenithkandel",
+    "bloodGroup": "O+",
+    "photo": "../assets/members/zenith-kandel.png",
+    "issueDate": "2026-01-15",
+    "validTill": "2027-01-15",
+    "emergencyContact": "+977 980-0000001"
+  },
+  {
+    "id": "NVG-2026-019",
+    "name": "Prajwal",
+    "post": "Multimedia Executive",
+    "category": "Core Team",
+    "phone": "+977 980-0000002",
+    "email": "prajwal@navigonepal.org",
+    "social": "@prajwal",
+    "bloodGroup": "B+",
+    "photo": "../assets/members/placeholder.svg",
+    "issueDate": "2026-01-15",
+    "validTill": "2027-01-15",
+    "emergencyContact": "+977 980-0000002"
   }
 ]

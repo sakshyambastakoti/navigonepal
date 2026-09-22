@@ -37,6 +37,8 @@ Below is the complete roster of ID cards generated from the website roles and up
 | **NVG-2026-015** | Santosh Gajureal | Consultant (Advisor) | +977 980-9990003 | santosh.gajureal@navigonepal.org |
 | **NVG-2026-016** | Swapnil Sapkota | Alumni & Founding Member | +977 980-8880001 | swapnil.sapkota@navigonepal.org |
 | **NVG-2026-017** | Atal Raj Paudel | Alumni & Founding Member | +977 980-8880002 | atal.paudel@navigonepal.org |
+| **NVG-2026-018** | Zenith Kandel | IT Executive | +977 980-0000001 | zenith@zenithkandel.com.np (`@zenithkandel`) |
+| **NVG-2026-019** | Prajwal | Multimedia Executive | +977 980-0000002 | prajwal@navigonepal.org (`@prajwal`) |
 
 ---
 
