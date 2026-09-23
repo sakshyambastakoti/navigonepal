@@ -91,7 +91,7 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: 'contact@navigonepal.org',
+    user: 'navigonepal@gmail.com',
     pass: process.env.EMAIL_APP_PASSWORD // Gmail App Password
   }
 });
@@ -106,7 +106,7 @@ template = template
   .replace(/{{Portal_Link}}/g, 'https://navigonepal.org/join.html');
 
 transporter.sendMail({
-  from: '"Navigo Nepal" <contact@navigonepal.org>',
+  from: '"Navigo Nepal" <navigonepal@gmail.com>',
   to: 'student@example.com',
   subject: 'Welcome to Navigo Nepal! 🇳🇵 Empowering your future journey',
   html: template
@@ -131,13 +131,13 @@ html_content = html_content.replace('{{Recipient_Name}}', 'Sujata Adhikari') \
 
 msg = MIMEMultipart('alternative')
 msg['Subject'] = "Invitation: Join the Navigo Nepal Career Guidance Summit 🚀"
-msg['From'] = "contact@navigonepal.org"
+msg['From'] = "navigonepal@gmail.com"
 msg['To'] = "sujata@example.com"
 msg.attach(MIMEText(html_content, 'html'))
 
 server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-server.login('contact@navigonepal.org', 'your-app-password')
-server.sendmail('contact@navigonepal.org', 'sujata@example.com', msg.as_string())
+server.login('navigonepal@gmail.com', 'your-app-password')
+server.sendmail('navigonepal@gmail.com', 'sujata@example.com', msg.as_string())
 server.quit()
 ```
 
