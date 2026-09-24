@@ -1,0 +1,15 @@
+# Navigo Nepal - Production robots.txt
+User-agent: *
+Allow: /
+
+# Disallow private/internal systems and raw contact data
+Disallow: /admin.html
+Disallow: /maintenance.html
+Disallow: /email-templates.html
+Disallow: /templates/
+Disallow: /id-cards/member_contacts.csv
+Disallow: /id-cards/members.json
+Disallow: /id-cards/member_info.md
+
+# Canonical Sitemap
+Sitemap: https://navigonepal.org/sitemap.xml

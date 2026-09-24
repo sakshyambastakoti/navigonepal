@@ -1,0 +1,22 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Local original asset backups (high-res source archives)
+assets/.originals/
+*.tmp
+*.log
+
+# Environment & Secrets (defense-in-depth)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key

@@ -2,9 +2,89 @@
    Navigo Nepal ΓÇö Premium International-Grade Design System
    Inspired by UNESCO, UNICEF, Gates Foundation, TED, AG Pashmina
    ============================================================ */
+/* Fonts are preconnected and loaded asynchronously via HTML head links to eliminate render-blocking */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+/* ==================== ACCESSIBILITY & UTILITIES ==================== */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 1rem;
+  z-index: 99999;
+  background: var(--accent-color);
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: top 0.2s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Global Toast Notification */
+.navigo-global-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  max-width: 420px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xl);
+  z-index: 999999;
+  font-weight: 600;
+  font-size: 0.95rem;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.navigo-global-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.navigo-global-toast.success {
+  border-left: 5px solid var(--accent-emerald);
+}
+.navigo-global-toast.error {
+  border-left: 5px solid #EF4444;
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-map-photo video {
+    display: none !important;
+  }
+}
 /* ==================== CSS CUSTOM PROPERTIES ==================== */
 :root {
   /* Premium Navy Color System */
@@ -662,8 +742,10 @@ select:focus-visible {
 
 /* Theme Toggle Button */
 .theme-toggle {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;

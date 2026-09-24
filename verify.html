@@ -7,6 +7,7 @@
   <title>Official Member Profile Verification — Navigo Nepal</title>
   <meta name="description"
     content="Official member identity document and digital profile verification page for Navigo Nepal team members.">
+  <link rel="canonical" href="https://navigonepal.org/verify.html">
   <link rel="icon" type="image/png" href="assets/png_new_logo.png">
   <link rel="apple-touch-icon" href="assets/png_new_logo.png">
   <link rel="stylesheet" href="id-cards/id-card-styles.css">
@@ -392,6 +393,26 @@
             return false;
           });
 
+          function setSafeLink(element, scheme, val) {
+            element.textContent = '';
+            const cleanVal = (val || '').toString().trim();
+            if (!cleanVal) {
+              element.textContent = 'N/A';
+              return;
+            }
+            const a = document.createElement('a');
+            a.href = `${scheme}:${cleanVal.replace(/[\r\n"<>]/g, '')}`;
+            a.textContent = cleanVal;
+            element.appendChild(a);
+          }
+
+          function setSafePhoto(imgEl, photoSrc) {
+            const src = (photoSrc || '').toString().trim();
+            if (src.startsWith('assets/') || src.startsWith('../assets/') || src.startsWith('http://') || src.startsWith('https://')) {
+              imgEl.src = src;
+            }
+          }
+
           if (found) {
             vName.textContent = found.name;
             vPost.textContent = found.post;
@@ -404,13 +425,13 @@
             vCategory.textContent = found.category || 'Member';
             
             if (found.email) {
-              vEmail.innerHTML = `<a href="mailto:${found.email}">${found.email}</a>`;
+              setSafeLink(vEmail, 'mailto', found.email);
             } else {
               vEmail.textContent = 'N/A';
             }
 
             if (found.phone) {
-              vPhone.innerHTML = `<a href="tel:${found.phone}">${found.phone}</a>`;
+              setSafeLink(vPhone, 'tel', found.phone);
             } else {
               vPhone.textContent = 'N/A';
             }
@@ -420,7 +441,7 @@
               rowBloodGroup.style.display = 'flex';
             }
             if (found.emergencyContact) {
-              vEmergencyContact.innerHTML = `<a href="tel:${found.emergencyContact}">${found.emergencyContact}</a>`;
+              setSafeLink(vEmergencyContact, 'tel', found.emergencyContact);
               rowEmergencyContact.style.display = 'flex';
             }
             if (found.issueDate && found.validTill) {
@@ -429,7 +450,7 @@
             }
 
             if (found.photo) {
-              vPhoto.src = found.photo.replace('../', '');
+              setSafePhoto(vPhoto, found.photo.replace('../', ''));
             }
             
             // Build current profile QR code URL
@@ -442,23 +463,23 @@
         .catch(err => console.warn('members.json fetch issue:', err));
 
       function useUrlFallbacks() {
-        if (paramName) vName.textContent = decodeURIComponent(paramName);
-        if (paramPost) vPost.textContent = decodeURIComponent(paramPost);
+        if (paramName) vName.textContent = paramName;
+        if (paramPost) vPost.textContent = paramPost;
         if (queryId) {
           const numOnly = queryId.toString().replace(/\D/g, '');
           vId.textContent = queryId.startsWith('NVG') ? queryId : `NVG-2026-${(numOnly || queryId).toString().padStart(3, '0')}`;
           vShortUrl.textContent = `navigonepal.org/idcard/${numOnly || queryId}`;
         }
-        if (paramEmail) vEmail.innerHTML = `<a href="mailto:${decodeURIComponent(paramEmail)}">${decodeURIComponent(paramEmail)}</a>`;
-        if (paramPhone) vPhone.innerHTML = `<a href="tel:${decodeURIComponent(paramPhone)}">${decodeURIComponent(paramPhone)}</a>`;
-        if (paramCategory) vCategory.textContent = decodeURIComponent(paramCategory);
-        if (paramPhoto) vPhoto.src = decodeURIComponent(paramPhoto);
+        if (paramEmail) setSafeLink(vEmail, 'mailto', paramEmail);
+        if (paramPhone) setSafeLink(vPhone, 'tel', paramPhone);
+        if (paramCategory) vCategory.textContent = paramCategory;
+        if (paramPhoto) setSafePhoto(vPhoto, paramPhoto);
         if (paramBloodGroup) {
-          vBloodGroup.textContent = decodeURIComponent(paramBloodGroup);
+          vBloodGroup.textContent = paramBloodGroup;
           rowBloodGroup.style.display = 'flex';
         }
         if (paramEmergency) {
-          vEmergencyContact.textContent = decodeURIComponent(paramEmergency);
+          setSafeLink(vEmergencyContact, 'tel', paramEmergency);
           rowEmergencyContact.style.display = 'flex';
         }
       }

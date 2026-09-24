@@ -13,16 +13,73 @@
   <meta name="keywords"
     content="Navigo Nepal, education gap Nepal, SEE stream selection, youth empowerment, student clubs, Gurubaa, education non-profit Nepal">
 
-  <!-- Open Graph -->
+  <link rel="canonical" href="https://navigonepal.org/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://navigonepal.org/">
   <meta property="og:title" content="Navigo Nepal | Empowering Nepal's Future Leaders">
   <meta property="og:description"
     content="A premium youth-led educational empowerment platform connecting students, schools, mentors, innovators, and opportunities across Nepal.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/png_new_logo.png">
+  <meta property="og:image" content="https://navigonepal.org/assets/png_new_logo.png">
+  <meta property="og:site_name" content="Navigo Nepal">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://navigonepal.org/">
+  <meta name="twitter:title" content="Navigo Nepal | Empowering Nepal's Future Leaders">
+  <meta name="twitter:description"
+    content="Youth-led educational non-profit organization bridging academic learning and real-world skills through student counseling, club networks, and leadership programs across Nepal.">
+  <meta name="twitter:image" content="https://navigonepal.org/assets/png_new_logo.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/png_new_logo.png">
   <link rel="apple-touch-icon" href="assets/png_new_logo.png">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NGO",
+        "@id": "https://navigonepal.org/#organization",
+        "name": "Navigo Nepal",
+        "alternateName": "Navigo",
+        "url": "https://navigonepal.org/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://navigonepal.org/assets/png_new_logo.png"
+        },
+        "description": "Youth-led educational non-profit organization in Nepal bridging academic learning and real-world skills through student counseling, club networks, and leadership programs.",
+        "foundingLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kathmandu",
+            "addressCountry": "NP"
+          }
+        },
+        "sameAs": [
+          "https://facebook.com/navigonepal",
+          "https://instagram.com/navigonepal",
+          "https://linkedin.com/company/navigo-nepal"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://navigonepal.org/#website",
+        "url": "https://navigonepal.org/",
+        "name": "Navigo Nepal",
+        "description": "Empowering Nepal's Future Leaders, Innovators, and Changemakers",
+        "publisher": {
+          "@id": "https://navigonepal.org/#organization"
+        },
+        "inLanguage": "en-NP"
+      }
+    ]
+  }
+  </script>
 
   <!-- Google Fonts - Premium Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,6 +208,9 @@
 </head>
 
 <body>
+
+  <!-- Skip Link for Keyboard Accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -355,6 +415,9 @@
   </aside>
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="main">
+
   <!-- HERO SECTION - Full Width Dark Editorial -->
   <header class="section hero-map-section" id="hero">
     <!-- B&W Background Slideshow -->
@@ -410,7 +473,7 @@
 
         <!-- Video masked to Nepal shape -->
         <div class="hero-map-photo">
-          <video autoplay loop muted playsinline preload="auto">
+          <video autoplay loop muted playsinline preload="metadata" poster="assets/hero-video-poster.jpg">
             <source src="assets/navigo.mp4" type="video/mp4">
           </video>
         </div>
@@ -1283,7 +1346,7 @@
                   <td><strong>Gyanodaya Secondary School</strong></td>
                   <td>Scout Students</td>
                   <td>120 Students</td>
-                  <td>Balloon Game, "How Many F's" critical thinking check, announced collaborative **Eco Clubs** setup.
+                  <td>Balloon Game, "How Many F's" critical thinking check, announced collaborative <strong>Eco Clubs</strong> setup.
                   </td>
                 </tr>
                 <tr>
@@ -2010,6 +2073,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- PREMIUM FOOTER -->
   <footer class="footer">
     <div class="container">
@@ -2262,8 +2327,8 @@
             style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.6; text-align: left;">
             <strong>Step 1:</strong> Scan the QR code above with your mobile banking or wallet app to complete the
             transfer.<br>
-            <strong>Step 2:</strong> Please upload/send your **payment screenshot** to our official **social media
-            accounts** or email it to <a href="mailto:navigonepal@gmail.com"
+            <strong>Step 2:</strong> Please upload/send your <strong>payment screenshot</strong> to our official <strong>social media
+            accounts</strong> or email it to <a href="mailto:navigonepal@gmail.com"
               style="color: var(--accent-color); font-weight: 600; text-decoration: underline;">navigonepal@gmail.com</a>
             to validate and activate your social media appreciation/account recognition.
           </p>

@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })();
   if (!CMS) {
-    console.error("Navigo CMS data layer not detected.");
-    return;
+    console.warn("Navigo CMS data layer not detected; continuing with static UI controllers.");
   }
 
   // Page load animation
@@ -71,9 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (mobileNavClose) mobileNavClose.addEventListener("click", closeMobileNav);
   if (mobileNavOverlay) mobileNavOverlay.addEventListener("click", closeMobileNav);
 
-  document.querySelectorAll(".mobile-nav-link").forEach(link => {
+  document.querySelectorAll(".mobile-nav-link:not(.mobile-nav-dropdown-toggle)").forEach(link => {
     link.addEventListener("click", () => {
       closeMobileNav();
+    });
+  });
+
+  // Smooth scroll for all back-to-top buttons
+  document.querySelectorAll(".back-to-top-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 
@@ -156,12 +163,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ==================== 3. CMS CONTENT RENDERING ====================
-
-  // Render Hero
-  if (document.getElementById("heroTitle")) document.getElementById("heroTitle").innerHTML = CMS.hero.title;
-  if (document.getElementById("heroSubtitle")) document.getElementById("heroSubtitle").textContent = CMS.hero.subtitle;
-  if (document.getElementById("heroCtaPrimary")) document.getElementById("heroCtaPrimary").textContent = CMS.hero.ctaPrimary;
-  if (document.getElementById("heroCtaSecondary")) document.getElementById("heroCtaSecondary").textContent = CMS.hero.ctaSecondary;
+  if (CMS) {
+    // Render Hero
+    if (document.getElementById("heroTitle") && CMS.hero) document.getElementById("heroTitle").innerHTML = CMS.hero.title;
+    if (document.getElementById("heroSubtitle") && CMS.hero) document.getElementById("heroSubtitle").textContent = CMS.hero.subtitle;
+    if (document.getElementById("heroCtaPrimary") && CMS.hero) document.getElementById("heroCtaPrimary").textContent = CMS.hero.ctaPrimary;
+    if (document.getElementById("heroCtaSecondary") && CMS.hero) document.getElementById("heroCtaSecondary").textContent = CMS.hero.ctaSecondary;
 
   // Render Founding Stats Dynamically
   const statMembersVal = CMS.impactMetrics.find(m => m.id === "volunteers");
@@ -371,6 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.reveal:not(.revealed), .reveal-left:not(.revealed), .reveal-right:not(.revealed), .reveal-scale:not(.revealed)').forEach(el => {
     revealObserver.observe(el);
   });
+  } // end if (CMS)
 
 
   // ==================== 4. SCROLL METRIC COUNTERS ====================
@@ -442,7 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
       path.classList.add("active");
 
       const provinceId = path.getAttribute("id").replace("path-", "");
-      const provData = CMS.provinces.find(p => p.id === provinceId);
+      const provData = CMS && CMS.provinces ? CMS.provinces.find(p => p.id === provinceId) : null;
 
       if (provData) {
         updateMapPanel(provData);
@@ -512,7 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const defaultPath = document.getElementById("path-bagmati");
-  if (defaultPath) {
+  if (defaultPath && CMS && CMS.provinces) {
     defaultPath.classList.add("active");
     const bagmatiData = CMS.provinces.find(p => p.id === "bagmati");
     if (bagmatiData) updateMapPanel(bagmatiData);
@@ -529,7 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const slideCount = slides.length;
     let autoplayInterval;
 
-    if (navDotsWrapper) {
+    if (navDotsWrapper && CMS && CMS.successStories) {
       navDotsWrapper.innerHTML = CMS.successStories.map((_, idx) => `
         <button class="carousel-dot ${idx === 0 ? 'active' : ''}" aria-label="View Story ${idx + 1}"></button>
       `).join("");
@@ -583,27 +591,36 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = e.target.closest(".program-learn-more");
       if (!btn) return;
 
-      const progId = btn.getAttribute("data-id");
-      const prog = CMS.programs.find(p => p.id === progId);
+      if (CMS && CMS.programs) {
+        const progId = btn.getAttribute("data-id");
+        const prog = CMS.programs.find(p => p.id === progId);
 
-      if (prog) {
-        document.getElementById("modalProgramTag").textContent = prog.title.toUpperCase();
-        document.getElementById("modalProgramTitle").textContent = prog.title;
-        document.getElementById("modalProgramBody").innerHTML = `
-          <p style="margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 600; color: var(--text-main);">${prog.shortDesc}</p>
-          <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">${prog.fullDesc}</p>
-          
-          <div style="padding: 1.5rem; background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(16,185,129,0.03)); border: 1px solid var(--border-color); display: flex; align-items: center; gap: 1.25rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Want this program in your local school? Reach out via our <a href="#contact" onclick="document.getElementById('programModal').classList.remove('active');" style="color: var(--accent-color); font-weight: 600;">Contact Form</a> to establish a new School Club hub.</p>
-          </div>
-        `;
-        programModal.classList.add("active");
+        if (prog) {
+          const tagEl = document.getElementById("modalProgramTag");
+          const titleEl = document.getElementById("modalProgramTitle");
+          const bodyEl = document.getElementById("modalProgramBody");
+          if (tagEl) tagEl.textContent = prog.title.toUpperCase();
+          if (titleEl) titleEl.textContent = prog.title;
+          if (bodyEl) {
+            bodyEl.innerHTML = `
+              <p style="margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 600; color: var(--text-main);">${prog.shortDesc}</p>
+              <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">${prog.fullDesc}</p>
+              
+              <div style="padding: 1.5rem; background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(16,185,129,0.03)); border: 1px solid var(--border-color); display: flex; align-items: center; gap: 1.25rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Want this program in your local school? Reach out via our <a href="#contact" onclick="document.getElementById('programModal')?.classList.remove('active');" style="color: var(--accent-color); font-weight: 600;">Contact Form</a> to establish a new School Club hub.</p>
+              </div>
+            `;
+          }
+          if (programModal) programModal.classList.add("active");
+        }
       }
     });
   }
 
-  closeProgramModal.addEventListener("click", () => programModal.classList.remove("active"));
+  if (closeProgramModal && programModal) {
+    closeProgramModal.addEventListener("click", () => programModal.classList.remove("active"));
+  }
 
   // B. Volunteer enrollment
   const volunteerModal = document.getElementById("volunteerModal");
@@ -616,13 +633,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const posId = btn.getAttribute("data-id");
       const posTitle = btn.getAttribute("data-title");
 
-      volPositionInput.value = posId;
-      volTitleEl.textContent = `Apply as ${posTitle}`;
-      volunteerModal.classList.add("active");
+      if (volPositionInput) volPositionInput.value = posId;
+      if (volTitleEl) volTitleEl.textContent = `Apply as ${posTitle}`;
+      if (volunteerModal) volunteerModal.classList.add("active");
     });
   });
 
-  closeVolunteerModal.addEventListener("click", () => volunteerModal.classList.remove("active"));
+  if (closeVolunteerModal && volunteerModal) {
+    closeVolunteerModal.addEventListener("click", () => volunteerModal.classList.remove("active"));
+  }
 
   // C. Donation Secure Gateways
   const donationModal = document.getElementById("donationModal");
@@ -635,20 +654,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const amount = btn.getAttribute("data-amount");
       const period = btn.getAttribute("data-period");
 
-      document.getElementById("donationTierId").value = id;
-      document.getElementById("modalDonationTitle").textContent = title;
-      document.getElementById("checkoutTierLabel").textContent = title;
-      document.getElementById("checkoutTierAmount").textContent = `₨ ${amount}`;
-      document.getElementById("checkoutTierPeriod").textContent = `/ ${period}`;
+      const tierInput = document.getElementById("donationTierId");
+      const titleEl = document.getElementById("modalDonationTitle");
+      const labelEl = document.getElementById("checkoutTierLabel");
+      const amountEl = document.getElementById("checkoutTierAmount");
+      const periodEl = document.getElementById("checkoutTierPeriod");
 
-      donationModal.classList.add("active");
+      if (tierInput) tierInput.value = id;
+      if (titleEl) titleEl.textContent = title;
+      if (labelEl) labelEl.textContent = title;
+      if (amountEl) amountEl.textContent = `₨ ${amount}`;
+      if (periodEl) periodEl.textContent = `/ ${period}`;
+
+      if (donationModal) donationModal.classList.add("active");
     });
   });
 
-  closeDonationModal.addEventListener("click", () => donationModal.classList.remove("active"));
+  if (closeDonationModal && donationModal) {
+    closeDonationModal.addEventListener("click", () => donationModal.classList.remove("active"));
+  }
 
   window.addEventListener("click", (e) => {
-    if (e.target.classList.contains("modal-overlay")) {
+    if (e.target.classList && e.target.classList.contains("modal-overlay")) {
       e.target.classList.remove("active");
     }
   });
@@ -657,18 +684,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==================== 8. FORM SUBMISSIONS & PREMIUM CONFETTI ====================
 
   const canvas = document.getElementById("confetti-canvas");
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas ? canvas.getContext("2d") : null;
   let confettiActive = false;
   let particles = [];
   // Premium navy/blue/emerald confetti palette
   const premiumColors = ["#2563EB", "#4F9CF9", "#10B981", "#34D399", "#DCEEFF", "#0A2342", "#FFFFFF"];
 
   function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    if (canvas) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
   }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
+  if (canvas && ctx) {
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+  }
 
   class ConfettiParticle {
     constructor() {
@@ -804,55 +835,80 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Toast notification helper for non-blocking feedback
+  function showToastNotification(msg, type = "success") {
+    let toast = document.getElementById("navigoGlobalToast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "navigoGlobalToast";
+      toast.className = "navigo-global-toast";
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.className = `navigo-global-toast show ${type}`;
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => {
+      toast.className = "navigo-global-toast";
+    }, 4000);
+  }
+
   // A. Contact Form
   const contactForm = document.getElementById("contactForm");
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    const name = document.getElementById("contactName").value.trim();
-    const email = document.getElementById("contactEmail").value.trim();
-    const message = document.getElementById("contactMessage").value.trim();
+      const nameEl = document.getElementById("contactName");
+      const emailEl = document.getElementById("contactEmail");
+      const messageEl = document.getElementById("contactMessage");
 
-    if (!name || !email || !message) {
-      alert("Please fill in all required fields.");
-      return;
-    }
+      const name = nameEl ? nameEl.value.trim() : "";
+      const email = emailEl ? emailEl.value.trim() : "";
+      const message = messageEl ? messageEl.value.trim() : "";
 
-    if (!validateEmail(email)) {
-      alert("Please provide a valid email address.");
-      return;
-    }
+      if (!name || !email || !message) {
+        showToastNotification("Please fill in all required fields.", "error");
+        return;
+      }
 
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    handleFormspreeSubmit(contactForm, submitBtn);
-  });
+      if (!validateEmail(email)) {
+        showToastNotification("Please provide a valid email address.", "error");
+        return;
+      }
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      handleFormspreeSubmit(contactForm, submitBtn);
+    });
+  }
 
   // B. Volunteer Form
   const volunteerForm = document.getElementById("volunteerForm");
-  volunteerForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  if (volunteerForm) {
+    volunteerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    const name = document.getElementById("volName").value.trim();
-    const email = document.getElementById("volEmail").value.trim();
-    const phone = document.getElementById("volPhone").value.trim();
-    const district = document.getElementById("volDistrict").value.trim();
-    const bio = document.getElementById("volBio").value.trim();
+      const name = document.getElementById("volName")?.value.trim() || "";
+      const email = document.getElementById("volEmail")?.value.trim() || "";
+      const phone = document.getElementById("volPhone")?.value.trim() || "";
+      const district = document.getElementById("volDistrict")?.value.trim() || "";
+      const bio = document.getElementById("volBio")?.value.trim() || "";
 
-    if (!name || !email || !phone || !district || !bio) {
-      alert("Please fill in all registration fields.");
-      return;
-    }
+      if (!name || !email || !phone || !district || !bio) {
+        showToastNotification("Please fill in all registration fields.", "error");
+        return;
+      }
 
-    if (!validateEmail(email)) {
-      alert("Please provide a valid email.");
-      return;
-    }
+      if (!validateEmail(email)) {
+        showToastNotification("Please provide a valid email.", "error");
+        return;
+      }
 
-    const submitBtn = volunteerForm.querySelector('button[type="submit"]');
-    handleFormspreeSubmit(volunteerForm, submitBtn, () => {
-      volunteerModal.classList.remove("active");
+      const submitBtn = volunteerForm.querySelector('button[type="submit"]');
+      handleFormspreeSubmit(volunteerForm, submitBtn, () => {
+        if (volunteerModal) volunteerModal.classList.remove("active");
+      });
     });
-  });
+  }
 
   // C. Donation Form
   const donationForm = document.getElementById("donationForm");
@@ -869,58 +925,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  donationForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  if (donationForm) {
+    donationForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    const name = document.getElementById("donorName").value.trim();
-    const email = document.getElementById("donorEmail").value.trim();
-    const phone = document.getElementById("donorPhone").value.trim();
-    const payment = document.getElementById("paymentMethod").value;
-    const tier = document.getElementById("checkoutTierLabel").textContent;
-    const amount = document.getElementById("checkoutTierAmount").textContent;
+      const name = document.getElementById("donorName")?.value.trim() || "";
+      const email = document.getElementById("donorEmail")?.value.trim() || "";
+      const phone = document.getElementById("donorPhone")?.value.trim() || "";
+      const tierEl = document.getElementById("checkoutTierLabel");
+      const amountEl = document.getElementById("checkoutTierAmount");
+      const tier = tierEl ? tierEl.textContent : "";
+      const amount = amountEl ? amountEl.textContent : "";
 
-    if (!name || !email || !phone) {
-      alert("Please complete billing information details.");
-      return;
-    }
+      if (!name || !email || !phone) {
+        showToastNotification("Please complete billing information details.", "error");
+        return;
+      }
 
-    if (!validateEmail(email)) {
-      alert("Please provide a valid email.");
-      return;
-    }
+      if (!validateEmail(email)) {
+        showToastNotification("Please provide a valid email.", "error");
+        return;
+      }
 
-    // Set hidden fields
-    document.getElementById("donorTier").value = tier;
-    document.getElementById("donorAmount").value = amount;
+      // Set hidden fields
+      const donorTierInput = document.getElementById("donorTier");
+      const donorAmountInput = document.getElementById("donorAmount");
+      if (donorTierInput) donorTierInput.value = tier;
+      if (donorAmountInput) donorAmountInput.value = amount;
 
-    const submitBtn = donationForm.querySelector('button[type="submit"]');
-    handleFormspreeSubmit(donationForm, submitBtn, () => {
-      donationModal.classList.remove("active");
+      const submitBtn = donationForm.querySelector('button[type="submit"]');
+      handleFormspreeSubmit(donationForm, submitBtn, () => {
+        if (donationModal) donationModal.classList.remove("active");
+      });
     });
-  });
+  }
 
-  // D. Newsletter Form
-  const newsletterForm = document.getElementById("newsletterForm");
-  newsletterForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("newsletterEmail").value.trim();
+  // D. Newsletter Forms (all instances across the entire site)
+  document.querySelectorAll(".newsletter-form").forEach(form => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const emailInput = form.querySelector('input[type="email"]');
+      const email = emailInput ? emailInput.value.trim() : "";
 
-    if (!email || !validateEmail(email)) {
-      alert("Please provide a valid email address.");
-      return;
-    }
+      if (!email || !validateEmail(email)) {
+        showToastNotification("Please provide a valid email address.", "error");
+        return;
+      }
 
-    launchConfettiShower();
-    alert("Subscribed! Thank you for joining the Navigo Nepal community.");
-    newsletterForm.reset();
+      if (typeof launchConfettiShower === "function") {
+        launchConfettiShower();
+      }
+      showToastNotification("Subscribed! Thank you for joining the Navigo Nepal community.", "success");
+      form.reset();
+    });
   });
 
   // E. Resource downloads
   document.querySelectorAll(".resource-download-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const title = btn.getAttribute("data-title");
-      launchConfettiShower();
-      alert(`Preparing Download:\n"${title}"\n\nThank you for utilizing our open academic library!`);
+      if (typeof launchConfettiShower === "function") launchConfettiShower();
+      showToastNotification(`Preparing Download: "${title}"`, "success");
     });
   });
 

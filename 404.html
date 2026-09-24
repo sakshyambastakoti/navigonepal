@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <script src="js/theme.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Navigo Nepal</title>
+  <meta name="description" content="The page you are looking for does not exist or has been moved. Navigate back to Navigo Nepal's home or educational programs.">
+  <link rel="icon" type="image/png" href="assets/png_new_logo.png">
+  <link rel="apple-touch-icon" href="assets/png_new_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .not-found-wrapper {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .not-found-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 3.5rem 2.5rem;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .not-found-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+    }
+
+    .not-found-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      background: rgba(37, 99, 235, 0.08);
+      padding: 0.35rem 1rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.5rem;
+    }
+
+    .not-found-code {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 15vw, 8.5rem);
+      line-height: 0.9;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    .not-found-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+    }
+
+    .not-found-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2.25rem;
+    }
+
+    .not-found-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .not-found-links {
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .not-found-links a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .not-found-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="logo" id="navLogo">
+        <img src="assets/navigo-logo.png" alt="Navigo Nepal" class="logo-img" width="120" height="40">
+      </a>
+
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode" title="Toggle Mode">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            style="display: block;">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <a href="index.html" class="btn btn-primary" style="padding: 0.55rem 1.25rem; font-size: 0.85rem;">Return Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="not-found-wrapper">
+    <div class="not-found-card">
+      <span class="not-found-badge">Navigation Error</span>
+      <div class="not-found-code">404</div>
+      <h1 class="not-found-title">Oops! You've Reached Uncharted Territory</h1>
+      <p class="not-found-desc">
+        The destination you are looking for might have been relocated, updated, or does not exist. Let's get you back on track to exploring youth educational programs across Nepal.
+      </p>
+
+      <div class="not-found-actions">
+        <a href="index.html" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Back to Homepage
+        </a>
+        <a href="programs.html" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          Explore Programs
+        </a>
+      </div>
+
+      <div class="not-found-links">
+        <a href="our-story.html">Our Story</a>
+        <a href="discord-workshop.html">Discord Workshops</a>
+        <a href="team.html">Our Team</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="donate.html">Donate</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-bottom" style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color);">
+    <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Navigo Nepal. Youth-Led Educational Empowerment.</p>
+  </footer>
+  <script src="js/app.js" defer></script>
+</body>
+
+</html>
