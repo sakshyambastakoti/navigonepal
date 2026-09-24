@@ -763,9 +763,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Common Formspree Submit Handler
   function handleFormspreeSubmit(form, submitBtn, successCallback) {
-    const originalBtnHtml = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="form-spinner"></span> Submitting...';
+    const originalBtnHtml = submitBtn ? submitBtn.innerHTML : "";
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="form-spinner"></span> Submitting...';
+    }
 
     const formData = new FormData(form);
     fetch(form.action, {
