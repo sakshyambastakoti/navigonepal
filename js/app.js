@@ -788,15 +788,19 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             alert("Oops! There was a problem submitting your form. Please try again.");
           }
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnHtml;
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
         });
       }
     })
     .catch(error => {
       alert("Oops! There was a network error. Please check your internet connection and try again.");
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnHtml;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      }
     });
   }
 
