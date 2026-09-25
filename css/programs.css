@@ -6,7 +6,7 @@
 .prog-hero {
   position: relative;
   background: linear-gradient(180deg, #030B18 0%, #06172F 100%);
-  padding: 10rem 0 5rem 0;
+  padding: clamp(6.5rem, 12vw, 9.5rem) 0 clamp(3rem, 6vw, 5rem);
   overflow: hidden;
   text-align: center;
 }
@@ -53,17 +53,19 @@
 
 .prog-hero-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(4.25rem, 14vw, 9.25rem);
+  font-size: clamp(2.2rem, 9vw, 6.5rem);
   font-weight: 950;
   color: #ffffff;
-  letter-spacing: -0.05em;
-  line-height: 0.82;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
   text-transform: uppercase;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .prog-hero-accent {
@@ -143,6 +145,25 @@
   gap: 0.5rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .prog-tabs-section {
+    position: static;
+    padding: 0.5rem 0 1rem;
+  }
+  .prog-tabs {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1rem 0.5rem;
+    scrollbar-width: thin;
+  }
+  .prog-tab {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
 }
 
 .prog-tab {
@@ -668,7 +689,7 @@
 .prog-form-group select,
 .prog-form-group textarea {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding: 0.8rem 1rem;
   background: var(--bg-primary);
   border: 1.5px solid var(--border-color);
@@ -677,6 +698,7 @@
   transition: border-color 0.3s ease, background 0.3s ease;
   outline: none;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .prog-form-group input:focus,
@@ -1397,13 +1419,15 @@ img {
 .prog-hero-title,
 .ref-hero-title {
   font-family: 'Bebas Neue', sans-serif !important;
-  font-size: clamp(3rem, 6.5vw, 5.2rem) !important;
+  font-size: clamp(2rem, 6.5vw, 4.8rem) !important;
   font-weight: 400 !important;
   color: #FFFFFF !important;
   line-height: 1.05 !important;
   letter-spacing: 0.03em !important;
   text-transform: uppercase !important;
   margin-bottom: 1.25rem !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .prog-hero-accent {
@@ -1476,13 +1500,15 @@ img {
 
 .ref-hero-title {
   font-family: 'Bebas Neue', sans-serif !important;
-  font-size: clamp(3rem, 6.5vw, 5.2rem);
+  font-size: clamp(2rem, 6.5vw, 4.8rem);
   font-weight: 400;
   color: #FFFFFF !important;
   line-height: 1.05;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .ref-hero-subtitle {
@@ -1940,4 +1966,66 @@ img {
 
 .white-bg-section .prog-cta-desc {
   color: #64748B !important;
+}
+
+/* ==================== SUBPAGE RESPONSIVE ENHANCEMENTS ==================== */
+@media (max-width: 767.98px) {
+  .prog-timeline-content,
+  .white-bg-section .prog-timeline-content {
+    padding: 1.25rem 1.15rem !important;
+  }
+
+  .prog-info-box,
+  .prog-section-dark .prog-info-box,
+  .white-bg-section .prog-info-box {
+    padding: 1.25rem 1.15rem !important;
+  }
+
+  .prog-sidebar-card,
+  .white-bg-section .prog-sidebar-card,
+  .prog-section-dark .prog-sidebar-card {
+    padding: 1.25rem 1.15rem !important;
+  }
+
+  .prog-cta-card,
+  .white-bg-section .prog-cta-card,
+  .prog-section-dark .prog-cta-card {
+    padding: 1.5rem 1.15rem !important;
+  }
+
+  .prog-content-sidebar {
+    grid-template-columns: 1fr !important;
+  }
+
+  .btn-ref-pill {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.88rem;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .prog-hero-title,
+  .ref-hero-title {
+    font-size: clamp(1.85rem, 8vw, 2.5rem) !important;
+  }
+
+  .prog-stat-item {
+    min-width: 130px;
+  }
+
+  .prog-timeline-item {
+    padding-left: 1.15rem !important;
+  }
+
+  .prog-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .prog-form-submit {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+  }
 }

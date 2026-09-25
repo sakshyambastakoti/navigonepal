@@ -28,6 +28,7 @@
   background-color: #F4F1EA;
   color: #121212;
   min-height: 100vh;
+  min-height: 100dvh;
   padding-top: 75px;
   padding-bottom: 4rem;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -83,6 +84,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   border-top: 1.5px solid #121212;
   border-bottom: 1.5px solid #121212;
   padding: 0.65rem 0;
@@ -119,13 +122,15 @@
 
 .magazine-main-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(3.2rem, 9vw, 6.2rem);
+  font-size: clamp(2rem, 8vw, 5.5rem);
   font-weight: 900;
   letter-spacing: 0.08em;
   line-height: 0.95;
   text-transform: uppercase;
   color: #121212;
   margin: 0 auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 [data-theme="dark"] .magazine-main-title {
@@ -724,3 +729,46 @@
   transform: translateY(0);
   opacity: 1;
 }
+
+/* Mobile & Small Screen Refinements */
+@media (max-width: 480px) {
+  .editorial-page-wrapper {
+    padding-top: 65px;
+    padding-bottom: 2.5rem;
+  }
+
+  .editorial-master-container {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .magazine-sheet {
+    padding: 1.5rem 0.85rem;
+  }
+
+  .magazine-post-headline {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    margin: 1rem 0;
+  }
+
+  .magazine-lead-divider {
+    padding: 1rem 0;
+    margin: 2rem 0;
+  }
+
+  .magazine-lead-text {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .magazine-article-columns {
+    gap: 2rem;
+  }
+
+  .blog-toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    justify-content: center;
+  }
+}
+

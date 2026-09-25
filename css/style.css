@@ -134,6 +134,12 @@
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-full: 9999px;
+
+  /* Safe Area Support */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 }
 
 [data-theme="dark"] {
@@ -240,21 +246,25 @@ select:focus-visible {
 
 /* ==================== TYPOGRAPHY SYSTEM ==================== */
 .heading-xl {
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-size: clamp(2rem, 5vw, 4.5rem);
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   color: var(--text-main);
   line-height: 1.08;
   letter-spacing: -0.03em;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .heading-lg {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.65rem, 3.8vw, 3rem);
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   color: var(--text-main);
-  line-height: 1.12;
+  line-height: 1.15;
   letter-spacing: -0.02em;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .gradient-accent {
@@ -306,15 +316,17 @@ select:focus-visible {
 
 /* ==================== LAYOUT SYSTEM ==================== */
 .container {
-  width: 90%;
-  max-width: 1440px;
+  width: min(92%, 1440px);
   margin: 0 auto;
   position: relative;
   z-index: 10;
+  padding-left: max(0.5rem, var(--safe-left));
+  padding-right: max(0.5rem, var(--safe-right));
+  box-sizing: border-box;
 }
 
 .section {
-  padding: clamp(6rem, 12vw, 10rem) 0;
+  padding: clamp(3.5rem, 7vw, 7rem) 0;
   position: relative;
   overflow: hidden;
   background-color: #ffffff;
@@ -626,6 +638,10 @@ select:focus-visible {
   background: rgba(10, 10, 10, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  padding-top: var(--safe-top);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  box-sizing: border-box;
 }
 
 .navbar.scrolled {
@@ -638,10 +654,11 @@ select:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.65rem 5%;
+  padding: 0.65rem 4%;
   background: transparent;
   width: 100%;
   max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Logo */
@@ -737,7 +754,26 @@ select:focus-visible {
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .nav-controls {
+    gap: 0.4rem;
+  }
+  .nav-controls .btn-primary {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo-img {
+    height: 26px;
+  }
+  .nav-controls .btn-primary {
+    display: none;
+  }
 }
 
 /* Theme Toggle Button */
@@ -811,11 +847,12 @@ select:focus-visible {
   position: fixed;
   top: 0;
   right: -100%;
-  width: min(85vw, 380px);
+  width: min(85vw, 360px);
+  height: 100vh;
   height: 100dvh;
   background: var(--bg-secondary);
   z-index: 1001;
-  padding: 5.5rem 1.5rem 2rem;
+  padding: calc(5rem + var(--safe-top)) calc(1.5rem + var(--safe-right)) calc(2rem + var(--safe-bottom)) calc(1.5rem + var(--safe-left));
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -823,12 +860,13 @@ select:focus-visible {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  box-sizing: border-box;
 }
 
 @media (min-width: 576px) {
   .mobile-nav {
     width: min(80vw, 400px);
-    padding: 6rem 2rem 2rem;
+    padding: calc(5.5rem + var(--safe-top)) calc(2rem + var(--safe-right)) calc(2rem + var(--safe-bottom)) calc(2rem + var(--safe-left));
   }
 }
 
@@ -857,10 +895,12 @@ select:focus-visible {
 /* Mobile Nav Close Button */
 .mobile-nav-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 40px;
-  height: 40px;
+  top: calc(1rem + var(--safe-top));
+  right: calc(1rem + var(--safe-right));
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
@@ -1201,8 +1241,9 @@ body.nav-open {
 /* ==================== HERO SECTION — NEPAL MAP COMPOSITION ==================== */
 /* ==================== HERO SECTION - Dark Editorial ==================== */
 .hero-map-section {
-  height: calc(100vh - 58px);
-  min-height: 600px;
+  min-height: calc(100vh - 58px);
+  min-height: calc(100dvh - 58px);
+  height: auto;
   display: flex;
   align-items: center;
   padding-top: 0;
@@ -1284,10 +1325,11 @@ body.nav-open {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  width: min(92%, 1440px);
   height: 100%;
-  padding-top: 7rem;
-  padding-bottom: 2rem;
+  padding-top: calc(5.5rem + var(--safe-top));
+  padding-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 /* ---- Colored Accent Bar ---- */
@@ -1357,13 +1399,15 @@ body.nav-open {
 
 .hero-map-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
   font-weight: 400;
   color: #FFFFFF;
   line-height: 1.0;
   letter-spacing: 0.03em;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero-map-subtitle {
@@ -1484,10 +1528,10 @@ body.nav-open {
 
 /* ---- Right: Nepal Map + Video Visual ---- */
 .hero-map-visual {
-  flex: 0 0 auto;
+  flex: 1 1 450px;
   position: relative;
-  width: 900px;
-  max-width: 80vw;
+  width: 100%;
+  max-width: min(50vw, 680px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1588,7 +1632,7 @@ body.nav-open {
 }
 
 /* ---- Hero Responsive ---- */
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
   .hero-map-section {
     height: auto;
     min-height: auto;
@@ -1596,11 +1640,11 @@ body.nav-open {
 
   .hero-map-container {
     flex-direction: column;
-    padding-top: 7rem;
+    padding-top: calc(5rem + var(--safe-top));
     padding-bottom: 3rem;
     height: auto;
     min-height: auto;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .hero-map-text {
@@ -1620,22 +1664,25 @@ body.nav-open {
   .hero-map-ctas {
     justify-content: center;
     flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .hero-map-visual {
     width: 100%;
-    max-width: 400px;
+    max-width: min(90vw, 380px);
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
   .hero-map-container {
-    padding-top: 6rem;
-    padding-bottom: 2.5rem;
+    padding-top: calc(4.5rem + var(--safe-top));
+    padding-bottom: 2rem;
+    gap: 2rem;
   }
 
   .hero-map-title {
-    font-size: 2rem;
+    font-size: clamp(1.9rem, 8.5vw, 2.5rem);
+    margin-bottom: 1rem;
   }
 
   .hero-accent-segment {
@@ -1643,19 +1690,36 @@ body.nav-open {
     height: 4px;
   }
 
+  .hero-map-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-map-ctas {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
   .hero-btn-accent {
-    padding: 0.85rem 1.6rem;
-    font-size: 0.78rem;
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+    font-size: 0.85rem;
+    min-height: 48px;
+    text-align: center;
   }
 
   .hero-map-visual {
-    max-width: 320px;
+    max-width: min(100%, 300px);
   }
 
   .hero-btn-dark,
   .hero-btn-outline {
+    width: 100%;
     padding: 0.85rem 1.8rem;
     font-size: 0.85rem;
+    min-height: 48px;
   }
 }
 
@@ -1740,12 +1804,12 @@ body.nav-open {
 .founding-message-section {
   position: relative;
   background: #ffffff;
-  height: 100vh;
-  min-height: 650px;
+  min-height: min(100vh, 750px);
+  min-height: min(100dvh, 750px);
+  height: auto;
   display: flex;
   align-items: center;
-  padding: 0;
-  overflow: hidden;
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
   border-top: 1px solid var(--border-color);
 }
 
@@ -2001,12 +2065,12 @@ body.nav-open {
   position: relative;
   background: #ffffff;
   color: var(--text-main);
-  height: 100vh;
-  min-height: 650px;
+  min-height: min(100vh, 750px);
+  min-height: min(100dvh, 750px);
+  height: auto;
   display: flex;
   align-items: center;
-  padding: 0;
-  overflow: hidden;
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
   border-top: 1px solid var(--border-color);
 }
 
@@ -2036,7 +2100,7 @@ body.nav-open {
   background-size: 60px 60px;
   z-index: 0;
   pointer-events: none;
-  n opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* Section Header */
@@ -2171,14 +2235,20 @@ body.nav-open {
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 991.98px) {
+  .vision-section {
+    height: auto;
+    min-height: auto;
+    padding: clamp(3rem, 5vw, 4.5rem) 0;
+  }
+
   .vision-mv-new {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .vision-mv-new {
     grid-template-columns: 1fr;
     width: 100%;
@@ -4508,8 +4578,10 @@ select.form-control {
 }
 
 .social-btn-footer {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.7);
   display: flex;
@@ -4628,10 +4700,10 @@ select.form-control {
 /* ==================== MODALS ==================== */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
   background: rgba(6, 23, 47, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -4642,7 +4714,10 @@ select.form-control {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
-  padding: 1rem;
+  padding: max(1rem, var(--safe-top)) max(1rem, var(--safe-right)) max(1rem, var(--safe-bottom)) max(1rem, var(--safe-left));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
 .modal-overlay.active {
@@ -4657,12 +4732,13 @@ select.form-control {
   box-shadow: var(--shadow-xl);
   max-width: 620px;
   width: 100%;
-  padding: 3rem;
+  padding: clamp(1.25rem, 4vw, 2.75rem);
   position: relative;
   transform: translateY(30px) scale(0.96);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  max-height: 90vh;
+  max-height: calc(100dvh - 2.5rem);
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .modal-overlay.active .modal-content {
@@ -4671,13 +4747,15 @@ select.form-control {
 
 .modal-close-btn {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1rem;
+  right: 1rem;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   color: var(--text-main);
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4685,6 +4763,7 @@ select.form-control {
   transition: all 0.3s ease;
   border-radius: var(--radius-sm);
   font-size: 1.2rem;
+  z-index: 10;
 }
 
 .modal-close-btn:hover {
@@ -4714,10 +4793,10 @@ select.form-control {
 /* ==================== CONFETTI CANVAS ==================== */
 #confetti-canvas {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
   pointer-events: none;
   z-index: 100000;
 }
@@ -7835,3 +7914,61 @@ select.form-control {
     gap: 0.75rem;
   }
 }
+
+/* ==================== GLOBAL MOBILE & RESPONSIVE POLISH ==================== */
+
+/* Prevent awkward iOS Safari zooming on focus for all mobile inputs */
+@media (max-width: 767.98px) {
+  .form-control,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="number"],
+  input[type="url"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Touch targets: Ensure all interactive buttons/links have comfortable hit area */
+button,
+a.btn,
+.mobile-nav-link,
+.mobile-subnav-link,
+.theme-toggle,
+.hamburger,
+.mobile-nav-close,
+.modal-close-btn {
+  touch-action: manipulation;
+}
+
+/* Mobile ambient performance: reduce heavy blur filter load on mobile GPUs */
+@media (max-width: 767.98px) {
+  .glow-orb {
+    animation: none !important;
+    transform: none !important;
+    filter: blur(50px) !important;
+    opacity: 0.25 !important;
+  }
+  .orb-blue {
+    width: 260px !important;
+    height: 260px !important;
+  }
+  .orb-green {
+    width: 220px !important;
+    height: 220px !important;
+  }
+}
+
+/* Accessible focus rings */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}

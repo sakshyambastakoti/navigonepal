@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Admin Dashboard | Navigo Nepal</title>
   <link rel="icon" type="image/png" href="assets/png_new_logo.png">
   <link rel="apple-touch-icon" href="assets/png_new_logo.png">
@@ -762,6 +762,71 @@
       background: var(--bg-navbar);
       z-index: 2;
     }
+
+    /* Responsive Admin UI */
+    @media (max-width: 767.98px) {
+      .glow-circle {
+        display: none; /* Battery/GPU optimization on mobile */
+      }
+
+      .admin-header {
+        padding: max(1rem, env(safe-area-inset-top, 0px)) max(1rem, env(safe-area-inset-right, 0px)) 1rem max(1rem, env(safe-area-inset-left, 0px));
+      }
+
+      .admin-logo {
+        font-size: 1.1rem;
+      }
+
+      .admin-logo img {
+        height: 34px;
+      }
+
+      .main-wrapper {
+        padding: 1.5rem 1rem;
+      }
+
+      .form-input,
+      .editor-form-input {
+        font-size: 16px !important; /* Prevents iOS auto-zoom */
+      }
+
+      .admin-tabs {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.25rem;
+      }
+
+      .admin-tabs::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .login-container {
+        padding: 2rem 1.25rem;
+      }
+
+      .login-container h1 {
+        font-size: 1.6rem;
+      }
+
+      .telemetry-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .editor-section-card {
+        padding: 1.5rem 1rem;
+      }
+
+      .editor-action-panel {
+        flex-direction: column-reverse;
+      }
+
+      .editor-action-panel .btn-action {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -772,7 +837,7 @@
   <!-- Header -->
   <header class="admin-header">
     <a href="index.html" class="admin-logo">
-      <img src="assets/navigo-logo.png" alt="Navigo Nepal Logo" onerror="this.src='assets/png_new_logo.png'">
+      <img loading="eager" decoding="async" src="assets/navigo-logo.png" alt="Navigo Nepal Logo" onerror="this.src='assets/png_new_logo.png'">
       <span>Admin Console</span>
     </a>
     <div class="header-controls">

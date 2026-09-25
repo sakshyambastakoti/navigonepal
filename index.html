@@ -5,7 +5,7 @@
   <script src="js/maintenance.js"></script>
   <script src="js/theme.js"></script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="google-site-verification" content="MUprg24hsuMgzmR8_983c4ZIwmjwq1RyRJxWlSMZFUE" />
   <title>Navigo Nepal | Empowering Nepal's Future Leaders, Innovators, and Changemakers</title>
   <meta name="description"
@@ -111,6 +111,7 @@
       border-radius: 0px;
       cursor: pointer;
       transition: all 0.3s ease;
+      touch-action: manipulation;
     }
 
     .project-tab:hover,
@@ -119,6 +120,23 @@
       background: var(--accent-color);
       border-color: var(--accent-color);
       box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 640px) {
+      .tabs-container {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 0.5rem 0.5rem;
+        gap: 0.5rem;
+      }
+      .project-tab {
+        flex: 0 0 auto;
+        padding: 0.6rem 1.15rem;
+        font-size: 0.82rem;
+        white-space: nowrap;
+      }
     }
 
     /* Tab Content Panels */
@@ -151,10 +169,12 @@
       background: var(--bg-card);
       border-radius: 0px;
       box-shadow: var(--shadow-sm);
+      -webkit-overflow-scrolling: touch;
     }
 
     .past-projects-table {
       width: 100%;
+      min-width: 560px;
       border-collapse: collapse;
       text-align: left;
       font-size: 0.9rem;
@@ -170,11 +190,13 @@
       text-transform: uppercase;
       font-size: 0.75rem;
       letter-spacing: 0.1em;
+      white-space: nowrap;
     }
 
     .past-projects-table td {
       padding: 1rem 1.25rem;
       border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
     }
 
     .past-projects-table tr:last-child td {
@@ -225,7 +247,7 @@
   <nav class="navbar" id="mainNav">
     <div class="nav-container">
       <a href="#hero" class="logo" id="navLogo">
-        <img src="assets/navigo-logo.png" alt="Navigo Nepal" class="logo-img">
+        <img loading="eager" decoding="async" src="assets/navigo-logo.png" alt="Navigo Nepal" class="logo-img">
       </a>
 
       <ul class="nav-links">
@@ -423,15 +445,15 @@
     <!-- B&W Background Slideshow -->
     <div class="hero-video-bg-container">
       <div class="hero-bg-slideshow" id="heroBgSlideshow">
-        <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=1920&q=80" alt=""
+        <img decoding="async" src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=1920&q=80" alt=""
           class="hero-bg-slide active" loading="eager">
-        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80" alt="" class="hero-bg-slide"
+        <img decoding="async" src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&q=80" alt="" class="hero-bg-slide"
           loading="eager">
-        <img src="https://images.unsplash.com/photo-1526712318848-5f38e2740d44?w=1920&q=80" alt="" class="hero-bg-slide"
+        <img decoding="async" src="https://images.unsplash.com/photo-1526712318848-5f38e2740d44?w=1920&q=80" alt="" class="hero-bg-slide"
           loading="eager">
-        <img src="https://images.unsplash.com/photo-1558799401-1dcba79834c2?w=1920&q=80" alt="" class="hero-bg-slide"
+        <img decoding="async" src="https://images.unsplash.com/photo-1558799401-1dcba79834c2?w=1920&q=80" alt="" class="hero-bg-slide"
           loading="eager">
-        <img src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=1920&q=80" alt="" class="hero-bg-slide"
+        <img decoding="async" src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=1920&q=80" alt="" class="hero-bg-slide"
           loading="eager">
       </div>
       <div class="hero-video-overlay"></div>
@@ -468,7 +490,7 @@
       <div class="hero-map-visual">
         <!-- SVG Map outline overlay -->
         <div class="hero-map-svg-overlay" aria-hidden="true">
-          <img src="assets/extracted_map.svg" alt="">
+          <img loading="lazy" decoding="async" src="assets/extracted_map.svg" alt="">
         </div>
 
         <!-- Video masked to Nepal shape -->
@@ -926,18 +948,18 @@
 
             <!-- Collage Images -->
             <div class="collage-item item-top-left">
-              <img src="assets/our-vision/25424cf9d6f34e329ac41644c86947c6.jpg" alt="Navigo Classroom Session"
+              <img decoding="async" src="assets/our-vision/25424cf9d6f34e329ac41644c86947c6.jpg" alt="Navigo Classroom Session"
                 loading="lazy">
             </div>
             <div class="collage-item item-center-tall">
-              <img src="assets/our-vision/Village_students_Large.JPG" alt="Village Students Group" loading="lazy">
+              <img decoding="async" src="assets/our-vision/Village_students_Large.JPG" alt="Village Students Group" loading="lazy">
             </div>
             <div class="collage-item item-bottom-center">
-              <img src="assets/our-vision/thapathali-sukumbasi-basti.jpg" alt="Student Community Engagement"
+              <img decoding="async" src="assets/our-vision/thapathali-sukumbasi-basti.jpg" alt="Student Community Engagement"
                 loading="lazy">
             </div>
             <div class="collage-item item-middle-right">
-              <img src="assets/our-vision/village_scholarship_girls_Large.jpg" alt="Scholarship Girls Group"
+              <img decoding="async" src="assets/our-vision/village_scholarship_girls_Large.jpg" alt="Scholarship Girls Group"
                 loading="lazy">
             </div>
           </div>
@@ -974,7 +996,7 @@
         <!-- Portrait Column -->
         <div class="fm-portrait-col">
           <div class="fm-portrait-frame">
-            <img src="assets/169567052.jpg" alt="Navigo Nepal Co-Founders" class="fm-portrait-img"
+            <img loading="lazy" decoding="async" src="assets/169567052.jpg" alt="Navigo Nepal Co-Founders" class="fm-portrait-img"
               id="leadershipQuoteAvatar">
           </div>
           <div class="fm-portrait-caption">
@@ -1103,16 +1125,16 @@
           <div class="uq-block-images">
             <div class="uq-img-grid">
               <div class="uq-img-cell">
-                <img src="assets/1.jpeg" alt="Mentorship session" loading="lazy">
+                <img decoding="async" src="assets/1.jpeg" alt="Mentorship session" loading="lazy">
               </div>
               <div class="uq-img-cell">
-                <img src="assets/2.jpeg" alt="E-Spark workshop" loading="lazy">
+                <img decoding="async" src="assets/2.jpeg" alt="E-Spark workshop" loading="lazy">
               </div>
               <div class="uq-img-cell">
-                <img src="assets/3.jpeg" alt="Community engagement" loading="lazy">
+                <img decoding="async" src="assets/3.jpeg" alt="Community engagement" loading="lazy">
               </div>
               <div class="uq-img-cell">
-                <img src="assets/mentor/490395844_2986328531519088_3631913647663413802_n.jpg"
+                <img decoding="async" src="assets/mentor/490395844_2986328531519088_3631913647663413802_n.jpg"
                   alt="Youth Leadership Summit" loading="lazy">
               </div>
             </div>
@@ -1148,7 +1170,7 @@
           <!-- Landscape Image -->
           <div class="uq-block-images">
             <div class="uq-landscape-frame">
-              <img src="assets/mentor/494768055_122180105678283666_3769411379411479579_n.jpg"
+              <img decoding="async" src="assets/mentor/494768055_122180105678283666_3769411379411479579_n.jpg"
                 alt="Navigo Nepal Student Network" class="uq-landscape-img" loading="lazy">
             </div>
           </div>
@@ -1578,7 +1600,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/prasoon-bhatta.jpeg" alt="Prasoon Bhatta" class="nv-coord-card-img"
+              <img decoding="async" src="assets/members/prasoon-bhatta.jpeg" alt="Prasoon Bhatta" class="nv-coord-card-img"
                 loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
@@ -1599,7 +1621,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/sakshyam-bastakoti.png" alt="Sakshyam Bastakoti" class="nv-coord-card-img"
+              <img decoding="async" src="assets/members/sakshyam-bastakoti.png" alt="Sakshyam Bastakoti" class="nv-coord-card-img"
                 loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
@@ -1619,7 +1641,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/usnish-bajracharya.jpeg" alt="Usnish Bajracharya" class="nv-coord-card-img"
+              <img decoding="async" src="assets/members/usnish-bajracharya.jpeg" alt="Usnish Bajracharya" class="nv-coord-card-img"
                 loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
@@ -1645,7 +1667,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/shalin-dahal.png" alt="Shalin Dahal" class="nv-coord-card-img" loading="lazy">
+              <img decoding="async" src="assets/members/shalin-dahal.png" alt="Shalin Dahal" class="nv-coord-card-img" loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
             <div class="nv-coord-card-content">
@@ -1665,7 +1687,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/anshu-adhikari.jpeg" alt="Ansu Adhikari" class="nv-coord-card-img" loading="lazy">
+              <img decoding="async" src="assets/members/anshu-adhikari.jpeg" alt="Ansu Adhikari" class="nv-coord-card-img" loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
             <div class="nv-coord-card-content">
@@ -1684,7 +1706,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/avidaya-kc.jpeg" alt="Abhi KC" class="nv-coord-card-img" loading="lazy">
+              <img decoding="async" src="assets/members/avidaya-kc.jpeg" alt="Abhi KC" class="nv-coord-card-img" loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
             <div class="nv-coord-card-content">
@@ -1703,7 +1725,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/prithivi.png" alt="Prithivi Raj Poudel" class="nv-coord-card-img" loading="lazy">
+              <img decoding="async" src="assets/members/prithivi.png" alt="Prithivi Raj Poudel" class="nv-coord-card-img" loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
             <div class="nv-coord-card-content">
@@ -1723,7 +1745,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/sakshyam-bista.jpeg" alt="Sakshyam Bista" class="nv-coord-card-img"
+              <img decoding="async" src="assets/members/sakshyam-bista.jpeg" alt="Sakshyam Bista" class="nv-coord-card-img"
                 loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
@@ -1743,7 +1765,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/gaurav-acharya.png" alt="Gaurav Acharya" class="nv-coord-card-img"
+              <img decoding="async" src="assets/members/gaurav-acharya.png" alt="Gaurav Acharya" class="nv-coord-card-img"
                 loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
@@ -1763,7 +1785,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/members/zenith-kandel.png" alt="Zenith Kandel" class="nv-coord-card-img"
+              <img decoding="async" src="assets/members/zenith-kandel.png" alt="Zenith Kandel" class="nv-coord-card-img"
                 loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
@@ -1783,7 +1805,7 @@
           <div class="nv-coord-card-glow" aria-hidden="true"></div>
           <div class="nv-coord-card-inner">
             <div class="nv-coord-card-img-wrap">
-              <img src="assets/prajwal.jpg" alt="Prajwal" class="nv-coord-card-img"
+              <img decoding="async" src="assets/prajwal.jpg" alt="Prajwal" class="nv-coord-card-img"
                 loading="lazy">
               <div class="nv-coord-card-img-overlay"></div>
             </div>
@@ -1819,51 +1841,51 @@
       <div class="partners-grid reveal">
         <!-- Partner Card 1 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo1.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo1.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 2 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo3.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo3.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 3 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo4.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo4.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 4 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo5.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo5.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 5 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo6.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo6.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 6 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo7.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo7.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 7 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo8.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo8.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 8 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo9.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo9.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 9 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo10.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo10.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 10 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo11.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo11.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 11 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo12.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo12.png" alt="Partner Logo" loading="lazy">
         </div>
         <!-- Partner Card 12 -->
         <div class="partner-logo-card">
-          <img src="assets/partner/photo13.png" alt="Partner Logo" loading="lazy">
+          <img decoding="async" src="assets/partner/photo13.png" alt="Partner Logo" loading="lazy">
         </div>
       </div>
     </div>
@@ -1877,7 +1899,7 @@
       <div class="nv-coord-glow-orb nv-coord-glow-orb--1"></div>
     </div>
 
-    <img src="assets/girl.png" class="donate-bg-girl" alt="Sponsorship Background" onerror="this.style.display='none'">
+    <img loading="lazy" decoding="async" src="assets/girl.png" class="donate-bg-girl" alt="Sponsorship Background" onerror="this.style.display='none'">
 
     <div class="container" style="position: relative; z-index: 1;">
       <!-- Section Header — Bebas Neue Grassroots style -->
@@ -2082,7 +2104,7 @@
         <!-- Col 1 - Brand -->
         <div class="footer-col" style="display: flex; flex-direction: column; gap: 1.25rem;">
           <a href="#hero" class="logo">
-            <img src="assets/navigo-logo.png" alt="Navigo Nepal" class="logo-img" style="height: 48px;">
+            <img loading="eager" decoding="async" src="assets/navigo-logo.png" alt="Navigo Nepal" class="logo-img" style="height: 48px;">
           </a>
           <p style="color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.7;">
             A youth-led, non-profit educational catalyst bridging academic and technological frontiers for public
@@ -2321,7 +2343,7 @@
           style="display: block; border: 1.5px dashed var(--accent-color); padding: 1.5rem; background: var(--bg-primary); margin-top: 1rem; text-align: center;">
           <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Scan Fonepay
             QR Code to Pay</h4>
-          <img id="bankQrImage" src="assets/bank.jpeg" alt="Navigo Nepal Bank QR"
+          <img loading="lazy" decoding="async" id="bankQrImage" src="assets/bank.jpeg" alt="Navigo Nepal Bank QR"
             style="max-width: 200px; margin: 0.75rem auto; display: block; border: 1px solid var(--border-color); padding: 6px; background: #FFFFFF; border-radius: 0px;">
           <p
             style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.6; text-align: left;">

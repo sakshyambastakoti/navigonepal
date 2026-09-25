@@ -219,7 +219,7 @@ body {
 
 .id-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
   gap: 2.5rem 2rem;
   justify-items: center;
 }
@@ -941,8 +941,97 @@ body {
   transform: none !important;
 }
 
-.print-card-cell.show-back .card-face.card-front {
-  display: none !important;
+/* ============================================================
+   RESPONSIVE OPTIMIZATION (MOBILE & TABLET)
+   ============================================================ */
+@media (max-width: 767.98px) {
+  .id-portal-header {
+    padding: max(1rem, env(safe-area-inset-top, 0px)) max(1rem, env(safe-area-inset-right, 0px)) 1rem max(1rem, env(safe-area-inset-left, 0px));
+  }
+
+  .id-header-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .id-brand {
+    justify-content: flex-start;
+  }
+
+  .id-header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .id-header-actions .btn-nvg {
+    flex: 1 1 calc(50% - 0.5rem);
+    min-height: 44px;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .id-portal-main {
+    margin: 1.25rem auto;
+    padding: 0 max(1rem, env(safe-area-inset-left, 0px)) 2rem max(1rem, env(safe-area-inset-right, 0px));
+  }
+
+  .id-controls-bar {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .id-search-box {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .id-search-box input {
+    font-size: 16px; /* Prevents iOS auto-zoom */
+    min-height: 44px;
+  }
+
+  .id-filter-tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+    scrollbar-width: none;
+  }
+
+  .id-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-tab {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .id-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .id-cards-grid {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .card-wrapper {
+    max-width: calc(100vw - 2rem);
+    transform-origin: top center;
+    transform: scale(calc((100vw - 2rem) / 350));
+    margin-bottom: calc(560px * (calc((100vw - 2rem) / 350) - 1));
+  }
 }
 
 /* PRINT ENGINE STYLES */

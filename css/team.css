@@ -29,6 +29,8 @@
   color: var(--text-main);
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .team-section-desc {
@@ -76,8 +78,9 @@
 .team-card {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  padding: 2rem;
+  padding: clamp(1.25rem, 3.5vw, 2rem);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 .team-card:hover {
@@ -361,5 +364,19 @@
     grid-template-columns: repeat(3, 1fr) !important;
     max-width: 1200px;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-card {
+    padding: 1.25rem 1rem;
+  }
+  .team-card-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  .team-card--advisor .team-card-avatar {
+    width: 68px;
+    height: 68px;
   }
 }

@@ -4,7 +4,7 @@
 <head>
   <script src="js/theme.js"></script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Thank You — Navigo Nepal</title>
   <link rel="icon" type="image/png" href="assets/png_new_logo.png">
   <link rel="apple-touch-icon" href="assets/png_new_logo.png">
@@ -207,7 +207,7 @@
 
     .thank-you-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 2.5rem;
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
       font-weight: 800;
       margin: 0;
       color: var(--text-main);
@@ -215,7 +215,7 @@
     }
 
     .thank-you-desc {
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 3vw, 1.1rem);
       line-height: 1.7;
       color: var(--text-muted);
       margin: 0;
@@ -249,12 +249,27 @@
       margin-top: 1rem;
       border: none;
       cursor: pointer;
+      min-height: 48px;
     }
 
     .btn-home:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
       opacity: 0.95;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: max(1rem, env(safe-area-inset-top, 0px)) max(0.75rem, env(safe-area-inset-right, 0px)) max(1rem, env(safe-area-inset-bottom, 0px)) max(0.75rem, env(safe-area-inset-left, 0px));
+      }
+
+      .thank-you-card {
+        padding: 2.5rem 1.25rem;
+      }
+
+      .btn-home {
+        width: 100%;
+      }
     }
   </style>
 </head>

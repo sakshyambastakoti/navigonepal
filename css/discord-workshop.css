@@ -76,13 +76,15 @@
 
 .dw-ref-hero-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 6.8vw, 5.2rem);
+  font-size: clamp(2rem, 6.8vw, 5.2rem);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .dw-ref-hl-orange {
@@ -2277,3 +2279,47 @@
     font-size: 0.65rem;
   }
 }
+
+@media (max-width: 480px) {
+  .dw-ref-hero-title {
+    font-size: clamp(1.85rem, 8vw, 2.8rem);
+  }
+
+  .dw-ref-cards-wrapper {
+    margin-top: -20px;
+    padding: 0 1rem;
+  }
+
+  .dw-ref-hero-btn {
+    width: 100%;
+    max-width: 290px;
+    min-height: 48px;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .dw-ref-card {
+    padding: 2rem 1.25rem 2.75rem;
+  }
+
+  .dw-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .dw-metric-box {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .dw-metric-number {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+
+  .dw-metric-label {
+    font-size: 0.72rem;
+  }
+
+  .dw-cta-banner {
+    padding: 2.5rem 1.15rem;
+  }
+}
+

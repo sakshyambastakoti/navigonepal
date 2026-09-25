@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Official Member Profile Verification — Navigo Nepal</title>
   <meta name="description"
     content="Official member identity document and digital profile verification page for Navigo Nepal team members.">
@@ -200,6 +200,41 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+
+    @media (max-width: 575.98px) {
+      .verify-container {
+        margin: 1.5rem auto;
+        padding: 0 0.75rem;
+      }
+      .verify-header-banner {
+        padding: 1.25rem 1rem 0.75rem 1rem;
+        gap: 0.5rem;
+      }
+      .verify-header-brand h2 {
+        font-size: 1.15rem;
+      }
+      .verify-body {
+        padding: 1.5rem 1rem;
+      }
+      .verify-name {
+        font-size: 1.4rem;
+      }
+      .verify-details-list {
+        padding: 1rem;
+      }
+      .verify-detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+      }
+      .verify-actions {
+        flex-direction: column;
+      }
+      .verify-actions .btn-nvg {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
@@ -209,7 +244,7 @@
   <header class="id-portal-header">
     <div class="id-header-container">
       <a href="index.html" class="id-brand">
-        <img src="assets/navigo-logo.png" alt="Navigo Nepal Logo">
+        <img loading="eager" decoding="async" src="assets/navigo-logo.png" alt="Navigo Nepal Logo">
         <div class="id-brand-text">
           <h1>NAVIGO NEPAL</h1>
           <p>Official Member Profile Verification</p>
@@ -243,7 +278,7 @@
     <div class="verify-card" id="profileCard">
 
       <div class="verify-header-banner">
-        <img src="assets/navigo-logo.png" alt="Navigo Nepal">
+        <img loading="eager" decoding="async" src="assets/navigo-logo.png" alt="Navigo Nepal">
         <div class="verify-header-brand">
           <h2>NAVIGO NEPAL</h2>
           <p>YOUTH EDUCATIONAL CATALYST</p>
@@ -261,7 +296,7 @@
 
       <div class="verify-body">
         <div class="verify-avatar-wrap">
-          <img id="vPhoto" src="assets/members/placeholder.svg" class="verify-avatar-img" alt="Member Photo"
+          <img loading="lazy" decoding="async" id="vPhoto" src="assets/members/placeholder.svg" class="verify-avatar-img" alt="Member Photo"
             onerror="this.src='assets/members/placeholder.svg'">
         </div>
 
@@ -312,7 +347,7 @@
 
         <!-- Embedded Profile Verification QR -->
         <div class="verify-qr-box-wrap">
-          <img id="vProfileQr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fnavigonepal.org%2Fverify.html" class="verify-qr-img" alt="Member Verification QR Code">
+          <img loading="lazy" decoding="async" id="vProfileQr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fnavigonepal.org%2Fverify.html" class="verify-qr-img" alt="Member Verification QR Code">
           <span style="font-size: 0.75rem; color: #94A3B8; font-weight: 600;">Official Verification QR Code</span>
         </div>
 
